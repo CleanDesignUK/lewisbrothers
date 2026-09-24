@@ -1,0 +1,170 @@
+<header class="site-header">
+
+  <nav
+    class="navbar navbar-expand-lg site-navbar nav-pill"
+    aria-label="Main navigation"
+  >
+
+    <div class="container-fluid nav-pill-inner">
+
+      <!-- LOGO -->
+      <a
+        class="navbar-brand nav-brand"
+        href="index.html"
+        aria-label="{{BUSINESS_NAME}} home"
+      >
+        <img
+          src="images/lewis-brothers-logo-landscape-transparent.png"
+          alt="Lewis Brothers Roofing and Plastering"
+          width="390"
+          height="104"
+        >
+      </a>
+
+
+      <!-- MOBILE TOGGLE -->
+      <button
+        class="navbar-toggler nav-menu-toggle"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#siteNav"
+        aria-controls="siteNav"
+        aria-expanded="false"
+        aria-label="Open navigation"
+      >
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+      </button>
+
+
+      <!-- NAVIGATION -->
+      <div
+        class="collapse navbar-collapse"
+        id="siteNav"
+      >
+
+        <ul class="navbar-nav mx-lg-auto align-items-lg-center">
+
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav-page="index.html"
+              href="index.html"
+            >
+              Home
+            </a>
+          </li>
+
+
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav-page="about.html"
+              href="about.html"
+            >
+              About
+            </a>
+          </li>
+
+
+          <li class="nav-item dropdown">
+
+            <a
+              class="nav-link dropdown-toggle"
+              data-nav-services
+              href="services.html"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Services
+            </a>
+
+            <ul class="dropdown-menu nav-services-menu">
+
+              <li>
+                <a
+                  class="dropdown-item dropdown-item-featured"
+                  href="services.html"
+                >
+                  All Services
+                </a>
+              </li>
+
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+
+              <li>
+                <a
+                  class="dropdown-item"
+                  href="epdm-rubber-roofing.html"
+                >
+                  EPDM Rubber Roofing
+                </a>
+              </li>
+
+              <li>
+                <a
+                  class="dropdown-item"
+                  href="roofing-services.html"
+                >
+                  Roofing Services
+                </a>
+              </li>
+
+              <li>
+                <a
+                  class="dropdown-item"
+                  href="plastering-services.html"
+                >
+                  Plastering &amp; Rendering
+                </a>
+              </li>
+
+            </ul>
+
+          </li>
+
+
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav-page="contact-roofers-anglesey.html"
+              href="contact-roofers-anglesey.html"
+            >
+              Contact
+            </a>
+          </li>
+
+        </ul>
+
+
+        <!-- CALL BUTTON -->
+        <div class="nav-call-wrap">
+
+          <a
+            class="nav-call-btn"
+            href="{{PHONE_HREF}}"
+            aria-label="Call Lewis Brothers on {{PHONE_DISPLAY}}"
+          >
+            <i
+              class="bi bi-telephone-fill"
+              aria-hidden="true"
+            ></i>
+
+            <span>
+              Call {{PHONE_DISPLAY}}
+            </span>
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+</header>
