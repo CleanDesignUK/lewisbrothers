@@ -827,7 +827,449 @@
 
   };
 
+/* =========================================================
+   ABOUT PAGE SERVICE CARD SPREAD
+   ========================================================= */
 
+const initAboutServiceSpread = () => {
+
+  const deck =
+    document.querySelector(
+      '[data-about-spread]'
+    );
+
+
+  if (!deck) {
+    return;
+  }
+
+
+  const cards =
+    Array.from(
+      deck.querySelectorAll(
+        '.about-service-card'
+      )
+    );
+
+
+  if (cards.length < 2) {
+    return;
+  }
+
+
+  const desktopQuery =
+    window.matchMedia(
+      '(min-width: 900px)'
+    );
+
+
+  const reducedMotion =
+    window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    );
+
+
+  let startOffsets = [];
+
+  let ticking = false;
+
+
+
+  /* =======================================================
+     MEASURE ORIGINAL GRID
+     ======================================================= */
+
+  const measure = () => {
+
+    cards.forEach((card) => {
+
+      card.style.transform = '';
+
+    });
+
+
+    const firstRect =
+      cards[0]
+        .getBoundingClientRect();
+
+
+    startOffsets =
+      cards.map(
+        (card, index) => {
+
+          if (index === 0) {
+
+            return {
+              x: 0,
+              y: 0,
+              rotate: 0
+            };
+
+          }
+
+
+          const rect =
+            card.getBoundingClientRect();
+
+
+          return {
+
+            /*
+             * Cards start almost on top of the
+             * first card on the LEFT.
+             */
+
+            x:
+              firstRect.left -
+              rect.left +
+              (index * 18),
+
+            y:
+              index * 14,
+
+            rotate:
+              index === 1
+                ? -1.5
+                : 1.5
+
+          };
+
+        }
+      );
+
+  };
+
+
+
+  /* =======================================================
+     MUCH LONGER SCROLL RANGE
+
+     Starts while section is still low in viewport.
+     Finishes only once deck approaches top.
+     ======================================================= */
+
+  const getGlobalProgress = () => {
+
+    const rect =
+      deck.getBoundingClientRect();
+
+
+    const viewportHeight =
+      window.innerHeight;
+
+
+    /*
+     * Start animation when the cards are
+     * near the bottom of the viewport.
+     */
+
+    const start =
+      viewportHeight * 0.96;
+
+
+    /*
+     * Finish much later, once the deck has
+     * travelled almost to the top.
+     */
+
+    const finish =
+      viewportHeight * 0.08;
+
+
+    const raw =
+      (
+        start -
+        rect.top
+      ) /
+      (
+        start -
+        finish
+      );
+
+
+    return Math.max(
+      0,
+      Math.min(
+        1,
+        raw
+      )
+    );
+
+  };
+
+
+
+  /* =======================================================
+     GENTLE EASING
+     ======================================================= */
+
+  const easeInOutCubic = (value) => {
+
+    return value < 0.5
+      ? 4 * value * value * value
+      : 1 -
+        Math.pow(
+          -2 * value + 2,
+          3
+        ) / 2;
+
+  };
+
+
+
+  /* =======================================================
+     CARD-SPECIFIC PROGRESS
+
+     Card 2 moves first.
+     Card 3 follows slightly later.
+     ======================================================= */
+
+  const getCardProgress = (
+    globalProgress,
+    index
+  ) => {
+
+    if (index === 0) {
+      return 1;
+    }
+
+
+    const delay =
+      index === 1
+        ? 0.03
+        : 0.13;
+
+
+    const available =
+      1 - delay;
+
+
+    const raw =
+      (
+        globalProgress -
+        delay
+      ) /
+      available;
+
+
+    const clamped =
+      Math.max(
+        0,
+        Math.min(
+          1,
+          raw
+        )
+      );
+
+
+    return easeInOutCubic(
+      clamped
+    );
+
+  };
+
+
+
+  /* =======================================================
+     RENDER
+     ======================================================= */
+
+  const render = () => {
+
+    ticking = false;
+
+
+    if (
+      !desktopQuery.matches ||
+      reducedMotion.matches
+    ) {
+
+      cards.forEach((card) => {
+
+        card.style.transform = '';
+        card.style.zIndex = '';
+
+      });
+
+
+      return;
+    }
+
+
+    const globalProgress =
+      getGlobalProgress();
+
+
+    cards.forEach(
+      (card, index) => {
+
+        const offset =
+          startOffsets[index];
+
+
+        if (!offset) {
+          return;
+        }
+
+
+        /*
+         * First card remains in place.
+         */
+
+        if (index === 0) {
+
+          card.style.transform =
+            'translate3d(0, 0, 0)';
+
+          card.style.zIndex =
+            String(cards.length + 1);
+
+          return;
+        }
+
+
+        const progress =
+          getCardProgress(
+            globalProgress,
+            index
+          );
+
+
+        const remaining =
+          1 -
+          progress;
+
+
+        const x =
+          offset.x *
+          remaining;
+
+
+        const y =
+          offset.y *
+          remaining;
+
+
+        const rotation =
+          offset.rotate *
+          remaining;
+
+
+        card.style.transform =
+          `
+            translate3d(
+              ${x}px,
+              ${y}px,
+              0
+            )
+            rotate(
+              ${rotation}deg
+            )
+          `;
+
+
+        card.style.zIndex =
+          String(
+            cards.length -
+            index
+          );
+
+      }
+    );
+
+  };
+
+
+
+  /* =======================================================
+     REQUEST ANIMATION FRAME
+     ======================================================= */
+
+  const requestRender = () => {
+
+    if (ticking) {
+      return;
+    }
+
+
+    ticking = true;
+
+
+    window.requestAnimationFrame(
+      render
+    );
+
+  };
+
+
+
+  /* =======================================================
+     RESIZE
+     ======================================================= */
+
+  const resize = () => {
+
+    measure();
+    requestRender();
+
+  };
+
+
+
+  measure();
+
+  requestRender();
+
+
+
+  window.addEventListener(
+    'scroll',
+    requestRender,
+    {
+      passive: true
+    }
+  );
+
+
+  window.addEventListener(
+    'resize',
+    resize,
+    {
+      passive: true
+    }
+  );
+
+
+  desktopQuery.addEventListener?.(
+    'change',
+    resize
+  );
+
+
+
+  /*
+   * Remeasure when images finish loading.
+   */
+
+  deck
+    .querySelectorAll('img')
+    .forEach((image) => {
+
+      if (!image.complete) {
+
+        image.addEventListener(
+          'load',
+          resize,
+          {
+            once: true
+          }
+        );
+
+      }
+
+    });
+
+};
 
   /* =========================================================
      GLOBAL SITE
@@ -846,6 +1288,8 @@
     initFAQs();
 
     updateFAQSchema();
+  initAboutServiceSpread();
+
 
   };
 
@@ -864,3 +1308,223 @@
     );
 
 })();
+
+/* =========================================================
+   GLOBAL TESTIMONIAL SLIDER
+   ========================================================= */
+
+function getTestimonialsTrack() {
+  return document.querySelector(
+    "[data-testimonials-track]"
+  );
+}
+
+
+function getTestimonialScrollDistance(track) {
+
+  const firstCard =
+    track.querySelector(
+      ".testimonial-review"
+    );
+
+  if (!firstCard) {
+    return track.clientWidth * 0.85;
+  }
+
+
+  const styles =
+    window.getComputedStyle(track);
+
+  const gap =
+    parseFloat(styles.columnGap) ||
+    parseFloat(styles.gap) ||
+    0;
+
+
+  return firstCard.getBoundingClientRect().width + gap;
+}
+
+
+function moveTestimonials(direction) {
+
+  const track =
+    getTestimonialsTrack();
+
+
+  if (!track) {
+    return;
+  }
+
+
+  const distance =
+    getTestimonialScrollDistance(track);
+
+
+  if (!distance) {
+    return;
+  }
+
+
+  const maxScroll =
+    Math.max(
+      0,
+      track.scrollWidth -
+      track.clientWidth
+    );
+
+
+  const tolerance = 8;
+
+  let target;
+
+
+  if (direction === "next") {
+
+    if (
+      track.scrollLeft >=
+      maxScroll - tolerance
+    ) {
+
+      target = 0;
+
+    } else {
+
+      target =
+        Math.min(
+          track.scrollLeft + distance,
+          maxScroll
+        );
+
+    }
+
+  } else {
+
+    if (
+      track.scrollLeft <=
+      tolerance
+    ) {
+
+      target = maxScroll;
+
+    } else {
+
+      target =
+        Math.max(
+          track.scrollLeft - distance,
+          0
+        );
+
+    }
+
+  }
+
+
+  track.scrollTo({
+    left: target,
+    behavior: "smooth"
+  });
+
+}
+
+
+/* =========================================================
+   TESTIMONIAL READ MORE / LESS
+   ========================================================= */
+
+function toggleTestimonial(button) {
+
+  const review =
+    button.closest(
+      ".testimonial-review"
+    );
+
+
+  if (!review) {
+    return;
+  }
+
+
+  const expanded =
+    review.classList.toggle(
+      "is-expanded"
+    );
+
+
+  button.textContent =
+    expanded
+      ? "Read less"
+      : "Read more";
+
+
+  button.setAttribute(
+    "aria-expanded",
+    String(expanded)
+  );
+
+}
+
+
+/* =========================================================
+   TESTIMONIAL BUTTON EVENTS
+   ========================================================= */
+
+document.addEventListener(
+  "click",
+  function (event) {
+
+    const previousButton =
+      event.target.closest(
+        "[data-testimonial-prev]"
+      );
+
+
+    if (previousButton) {
+
+      event.preventDefault();
+
+      moveTestimonials(
+        "previous"
+      );
+
+      return;
+
+    }
+
+
+    const nextButton =
+      event.target.closest(
+        "[data-testimonial-next]"
+      );
+
+
+    if (nextButton) {
+
+      event.preventDefault();
+
+      moveTestimonials(
+        "next"
+      );
+
+      return;
+
+    }
+
+
+    const readButton =
+      event.target.closest(
+        ".testimonial-read-button"
+      );
+
+
+    if (readButton) {
+
+      event.preventDefault();
+
+      toggleTestimonial(
+        readButton
+      );
+
+    }
+
+  }
+);

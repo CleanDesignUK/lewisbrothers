@@ -1,0 +1,2920 @@
+/* =========================================================
+   LEWIS BROTHERS
+   ROOFING SERVICES PAGE
+
+   IMPORTANT:
+   - Navbar comes from global.css
+   - Footer comes from global.css
+   - WhatsApp comes from global.css
+   - Testimonials come from global.css
+   - FAQs come from global.css
+   ========================================================= */
+
+
+.roofing-page {
+
+  --roof-blue:
+    var(--lb-blue, #163153);
+
+  --roof-blue-dark:
+    var(--lb-blue-dark, #0d223c);
+
+  --roof-blue-deep:
+    var(--lb-blue-deep, #07192c);
+
+  --roof-grey:
+    var(--lb-primary, #c6c8cc);
+
+  --roof-grey-dark:
+    var(--lb-primary-dark, #adb1b6);
+
+  --roof-grey-soft:
+    var(--lb-grey-light, #f3f4f5);
+
+  --roof-white:
+    #ffffff;
+
+  color:
+    var(--roof-blue-dark);
+}
+
+
+.roofing-page main {
+
+  overflow: hidden;
+
+  background:
+    var(--roof-grey-soft);
+}
+
+
+
+/* =========================================================
+   PAGE BODY TYPOGRAPHY
+   ========================================================= */
+
+.roofing-page main p,
+.roofing-page main li {
+
+  font-size: 18px;
+
+  line-height: 1.65;
+}
+
+
+.roofing-container {
+
+  width:
+    min(
+      calc(100% - 56px),
+      1480px
+    );
+
+  margin-inline: auto;
+}
+
+
+
+/* =========================================================
+   SHARED LABELS
+   ========================================================= */
+
+.roofing-page main
+.roofing-section-label,
+
+.roofing-page main
+.roofing-eyebrow {
+
+  margin:
+    0
+    0
+    15px;
+
+  color:
+    var(--roof-blue);
+
+  font-family:
+    var(--font-subheading);
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.13em;
+
+  line-height: 1.3;
+
+  text-transform: uppercase;
+}
+
+
+.roofing-page main
+.roofing-section-label-light {
+
+  color:
+    var(--roof-grey);
+}
+
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.roofing-hero {
+
+  position: relative;
+
+  min-height: 650px;
+
+  display: flex;
+
+  align-items: center;
+
+  overflow: hidden;
+
+  background-image:
+    url(
+      "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=2200"
+    );
+
+  background-position:
+    center;
+
+  background-size:
+    cover;
+}
+
+
+.roofing-hero-overlay {
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(7, 25, 44, 0.95)
+      0%,
+
+      rgba(7, 25, 44, 0.84)
+      41%,
+
+      rgba(7, 25, 44, 0.48)
+      68%,
+
+      rgba(7, 25, 44, 0.22)
+      100%
+    );
+}
+
+
+.roofing-hero-inner {
+
+  position: relative;
+
+  z-index: 2;
+
+  padding:
+    142px
+    0
+    82px;
+}
+
+
+.roofing-hero-content {
+
+  max-width: 820px;
+}
+
+
+.roofing-page main
+.roofing-hero
+.roofing-eyebrow {
+
+  color:
+    var(--roof-grey);
+}
+
+
+.roofing-hero h1 {
+
+  margin: 0;
+
+  color:
+    var(--roof-white);
+
+  font-family:
+    var(--font-heading);
+
+  font-size:
+    clamp(
+      4.1rem,
+      6.2vw,
+      6.7rem
+    );
+
+  font-weight: 700;
+
+  line-height: 0.91;
+
+  letter-spacing:
+    -0.058em;
+}
+
+
+.roofing-hero h1 span {
+
+  display: block;
+
+  color:
+    var(--roof-grey);
+}
+
+
+.roofing-page main
+.roofing-hero-lead {
+
+  max-width: 790px;
+
+  margin:
+    29px
+    0
+    0;
+
+  color:
+    rgba(255, 255, 255, 0.84);
+
+  font-size: 19px;
+
+  line-height: 1.62;
+}
+
+
+.roofing-hero-actions {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 12px;
+
+  margin-top: 32px;
+}
+
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.roofing-page main
+.roofing-button {
+
+  min-height: 54px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  padding:
+    0
+    27px;
+
+  border-radius:
+    999px;
+
+  font-family:
+    var(--font-subheading);
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  line-height: 1;
+
+  text-decoration: none;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    color 0.25s ease;
+}
+
+
+.roofing-page main
+.roofing-button:hover {
+
+  transform:
+    translateY(-2px);
+}
+
+
+.roofing-page main
+.roofing-button-primary {
+
+  border:
+    1px solid
+    var(--roof-grey);
+
+  background:
+    var(--roof-grey);
+
+  color:
+    var(--roof-blue-dark);
+}
+
+
+.roofing-page main
+.roofing-button-primary:hover {
+
+  background:
+    var(--roof-white);
+
+  border-color:
+    var(--roof-white);
+
+  color:
+    var(--roof-blue-dark);
+}
+
+
+.roofing-page main
+.roofing-button-glass {
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.43);
+
+  background:
+    rgba(255, 255, 255, 0.07);
+
+  color:
+    var(--roof-white);
+
+  backdrop-filter:
+    blur(10px);
+}
+
+
+.roofing-page main
+.roofing-button-glass:hover {
+
+  border-color:
+    rgba(255, 255, 255, 0.8);
+
+  background:
+    rgba(255, 255, 255, 0.13);
+
+  color:
+    var(--roof-white);
+}
+
+
+
+/* =========================================================
+   GENERAL SECTION HEADINGS
+   ========================================================= */
+
+.roofing-section-heading {
+
+  margin-bottom: 57px;
+}
+
+
+.roofing-section-heading-wide {
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.15fr)
+    minmax(320px, 0.55fr);
+
+  align-items: end;
+
+  gap:
+    clamp(
+      60px,
+      8vw,
+      120px
+    );
+}
+
+
+.roofing-section-heading h2,
+.roofing-gallery-heading h2,
+.roofing-location-section h2 {
+
+  margin: 0;
+
+  color:
+    var(--roof-blue-dark);
+
+  font-family:
+    var(--font-heading);
+
+  font-size:
+    clamp(
+      3.3rem,
+      4.9vw,
+      5.3rem
+    );
+
+  font-weight: 700;
+
+  line-height: 0.95;
+
+  letter-spacing:
+    -0.055em;
+}
+
+
+.roofing-section-heading h2 span,
+.roofing-gallery-heading h2 span {
+
+  display: block;
+
+  color:
+    #718197;
+}
+
+
+.roofing-page main
+.roofing-section-heading-wide
+> p {
+
+  max-width: 530px;
+
+  margin: 0;
+
+  color:
+    #536373;
+}
+
+
+
+/* =========================================================
+   SERVICES
+   ========================================================= */
+
+.roofing-services-section {
+
+  padding:
+    clamp(
+      105px,
+      9vw,
+      150px
+    )
+    0;
+
+  background:
+    var(--roof-grey-soft);
+}
+
+
+.roofing-services-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      minmax(0, 1fr)
+    );
+
+  gap: 18px;
+
+  align-items: stretch;
+}
+
+
+
+/* =========================================================
+   SERVICE CARDS
+   ========================================================= */
+
+.roofing-service-card {
+
+  min-width: 0;
+
+  min-height: 610px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  overflow: hidden;
+
+  border:
+    1px solid
+    rgba(13, 34, 60, 0.07);
+
+  border-radius: 28px;
+
+  background:
+    var(--roof-white);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+
+.roofing-service-card:hover {
+
+  transform:
+    translateY(-7px);
+
+  box-shadow:
+    0
+    24px
+    55px
+    rgba(13, 34, 60, 0.11);
+}
+
+
+.roofing-service-image {
+
+  height: 260px;
+
+  flex:
+    0
+    0
+    260px;
+
+  overflow: hidden;
+
+  background:
+    var(--roof-grey);
+}
+
+
+.roofing-service-image img {
+
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition:
+    transform 0.7s ease;
+}
+
+
+.roofing-service-card:hover
+.roofing-service-image img {
+
+  transform:
+    scale(1.035);
+}
+
+
+.roofing-service-content {
+
+  min-height: 350px;
+
+  flex: 1;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  gap: 31px;
+
+  padding:
+    31px
+    30px
+    28px;
+}
+
+
+.roofing-card-label {
+
+  margin:
+    0
+    0
+    10px !important;
+
+  color:
+    #64758a !important;
+
+  font-family:
+    var(--font-subheading);
+
+  font-size:
+    12px !important;
+
+  font-weight: 700;
+
+  letter-spacing:
+    0.11em;
+
+  line-height:
+    1.3 !important;
+
+  text-transform:
+    uppercase;
+}
+
+
+.roofing-service-content h3 {
+
+  margin:
+    0
+    0
+    16px;
+
+  color:
+    var(--roof-blue-dark);
+
+  font-family:
+    var(--font-heading);
+
+  font-size:
+    clamp(
+      1.7rem,
+      2vw,
+      2.05rem
+    );
+
+  font-weight: 700;
+
+  line-height: 1.05;
+
+  letter-spacing:
+    -0.04em;
+}
+
+
+.roofing-page main
+.roofing-service-content
+p:not(.roofing-card-label) {
+
+  margin: 0;
+
+  color:
+    #4d5d6d;
+
+  font-size: 17px;
+
+  line-height: 1.58;
+}
+
+
+.roofing-card-button {
+
+  width: fit-content;
+
+  min-height: 47px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding:
+    0
+    20px;
+
+  border:
+    1px solid
+    #d8dde2;
+
+  border-radius:
+    999px;
+
+  background:
+    #edf0f3;
+
+  color:
+    var(--roof-blue-dark);
+
+  font-family:
+    var(--font-subheading);
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+.roofing-card-button:hover {
+
+  border-color:
+    var(--roof-blue);
+
+  background:
+    var(--roof-blue);
+
+  color:
+    var(--roof-white);
+
+  transform:
+    translateY(-1px);
+}
+
+
+
+/* =========================================================
+   SPECIALIST EPDM
+   SQUARE IMAGE
+   ========================================================= */
+
+.roofing-epdm-section {
+
+  padding:
+    clamp(
+      90px,
+      8vw,
+      125px
+    )
+    0;
+
+  background:
+    var(--roof-white);
+}
+
+
+.roofing-epdm-panel {
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(
+      420px,
+      540px
+    )
+    minmax(
+      0,
+      1fr
+    );
+
+  align-items: center;
+
+  gap:
+    clamp(
+      45px,
+      7vw,
+      100px
+    );
+
+  padding:
+    clamp(
+      24px,
+      3vw,
+      40px
+    );
+
+  overflow: hidden;
+
+  border-radius: 30px;
+
+  background:
+    var(--roof-blue-dark);
+}
+
+
+.roofing-epdm-image {
+
+  width: 100%;
+
+  aspect-ratio: 1 / 1;
+
+  overflow: hidden;
+
+  border-radius: 24px;
+
+  background:
+    var(--roof-grey);
+}
+
+
+.roofing-epdm-image img {
+
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition:
+    transform 0.7s ease;
+}
+
+
+.roofing-epdm-panel:hover
+.roofing-epdm-image img {
+
+  transform:
+    scale(1.025);
+}
+
+
+.roofing-epdm-content {
+
+  padding:
+    clamp(
+      15px,
+      3vw,
+      42px
+    )
+    clamp(
+      20px,
+      4vw,
+      60px
+    )
+    clamp(
+      15px,
+      3vw,
+      42px
+    )
+    0;
+}
+
+
+.roofing-epdm-content h2 {
+
+  margin: 0;
+
+  color:
+    var(--roof-white);
+
+  font-family:
+    var(--font-heading);
+
+  font-size:
+    clamp(
+      3rem,
+      4.3vw,
+      4.7rem
+    );
+
+  font-weight: 700;
+
+  line-height: 0.96;
+
+  letter-spacing:
+    -0.052em;
+}
+
+
+.roofing-epdm-content h2 span {
+
+  display: block;
+
+  color:
+    var(--roof-grey);
+}
+
+
+.roofing-page main
+.roofing-epdm-content
+> p:not(.roofing-section-label) {
+
+  max-width: 650px;
+
+  margin:
+    25px
+    0
+    0;
+
+  color:
+    rgba(255, 255, 255, 0.74);
+}
+
+
+.roofing-epdm-button {
+
+  width: fit-content;
+
+  min-height: 51px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 30px;
+
+  padding:
+    0
+    23px;
+
+  border-radius:
+    999px;
+
+  background:
+    var(--roof-grey);
+
+  color:
+    var(--roof-blue-dark);
+
+  font-family:
+    var(--font-subheading);
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+.roofing-epdm-button:hover {
+
+  background:
+    var(--roof-white);
+
+  color:
+    var(--roof-blue-dark);
+
+  transform:
+    translateY(-2px);
+}
+
+
+
+/* =========================================================
+   WHY LEWIS BROTHERS
+   ========================================================= */
+
+.roofing-why-section {
+
+  padding:
+    clamp(
+      105px,
+      9vw,
+      150px
+    )
+    0;
+
+  background:
+    var(--roof-grey);
+}
+
+
+.roofing-why-layout {
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(420px, 0.88fr)
+    minmax(0, 1.12fr);
+
+  align-items: stretch;
+
+  gap:
+    clamp(
+      60px,
+      8vw,
+      120px
+    );
+}
+
+
+.roofing-why-visual {
+
+  min-height: 650px;
+
+  overflow: hidden;
+
+  border-radius: 30px;
+
+  background:
+    #aeb2b7;
+}
+
+
+.roofing-why-visual > img {
+
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+
+.roofing-why-content {
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+}
+
+
+.roofing-why-content h2 {
+
+  margin: 0;
+
+  color:
+    var(--roof-blue-dark);
+
+  font-family:
+    var(--font-heading);
+
+  font-size:
+    clamp(
+      3.3rem,
+      4.6vw,
+      5rem
+    );
+
+  font-weight: 700;
+
+  line-height: 0.96;
+
+  letter-spacing:
+    -0.055em;
+}
+
+
+.roofing-why-content h2 span {
+
+  display: block;
+
+  color:
+    #697a8e;
+}
+
+
+.roofing-page main
+.roofing-why-intro {
+
+  max-width: 720px;
+
+  margin:
+    25px
+    0
+    0;
+
+  color:
+    #435466;
+
+  font-size: 19px;
+
+  font-weight: 500;
+}
+
+
+.roofing-why-list {
+
+  margin-top: 31px;
+
+  border-top:
+    1px solid
+    rgba(13, 34, 60, 0.17);
+}
+
+
+.roofing-why-item {
+
+  display: grid;
+
+  grid-template-columns:
+    52px
+    minmax(0, 1fr);
+
+  gap: 18px;
+
+  padding:
+    23px
+    0;
+
+  border-bottom:
+    1px solid
+    rgba(13, 34, 60, 0.17);
+}
+
+
+.roofing-why-icon {
+
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 15px;
+
+  background:
+    var(--roof-blue);
+
+  color:
+    var(--roof-white);
+}
+
+
+.roofing-why-icon i {
+
+  font-size: 19px;
+}
+
+
+.roofing-why-item h3 {
+
+  margin:
+    0
+    0
+    6px;
+
+  color:
+    var(--roof-blue-dark);
+
+  font-family:
+    var(--font-heading);
+
+  font-size: 1.35rem;
+
+  font-weight: 700;
+}
+
+
+.roofing-page main
+.roofing-why-item p {
+
+  max-width: 660px;
+
+  margin: 0;
+
+  color:
+    #516170;
+
+  font-size: 16px;
+}
+
+
+
+/* =========================================================
+   TESTIMONIALS
+
+   NO TESTIMONIAL STYLING HERE.
+
+   .testimonials-section
+   .testimonials-track
+   .testimonial-review
+   .testimonial-card
+   .testimonial-control
+   etc.
+
+   are ALL controlled by global.css.
+   ========================================================= */
+
+
+
+/* =========================================================
+   GALLERY
+   ========================================================= */
+
+.roofing-gallery-section {
+
+  padding:
+    clamp(
+      105px,
+      9vw,
+      150px
+    )
+    0;
+
+  background:
+    var(--roof-white);
+}
+
+
+.roofing-gallery-heading {
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(320px, 0.55fr);
+
+  align-items: end;
+
+  gap:
+    clamp(
+      55px,
+      8vw,
+      110px
+    );
+
+  margin-bottom: 58px;
+}
+
+
+.roofing-page main
+.roofing-gallery-heading
+> p {
+
+  max-width: 540px;
+
+  margin: 0;
+
+  color:
+    #536373;
+}
+
+
+
+/* =========================================================
+   GALLERY MOSAIC
+   ========================================================= */
+
+.roofing-gallery-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      12,
+      minmax(0, 1fr)
+    );
+
+  grid-template-rows:
+    250px
+    250px
+    250px;
+
+  gap: 14px;
+}
+
+
+.roofing-gallery-item {
+
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 0;
+
+  display: block;
+
+  overflow: hidden;
+
+  border: 0;
+
+  border-radius: 25px;
+
+  background:
+    var(--roof-grey);
+
+  cursor: zoom-in;
+}
+
+
+.roofing-gallery-item-1 {
+
+  grid-column:
+    1 / 6;
+
+  grid-row:
+    1 / 3;
+}
+
+
+.roofing-gallery-item-2 {
+
+  grid-column:
+    6 / 13;
+
+  grid-row:
+    1 / 2;
+}
+
+
+.roofing-gallery-item-3 {
+
+  grid-column:
+    6 / 10;
+
+  grid-row:
+    2 / 3;
+}
+
+
+.roofing-gallery-item-4 {
+
+  grid-column:
+    10 / 13;
+
+  grid-row:
+    2 / 3;
+}
+
+
+.roofing-gallery-item-5 {
+
+  grid-column:
+    1 / 5;
+
+  grid-row:
+    3 / 4;
+}
+
+
+.roofing-gallery-item-6 {
+
+  grid-column:
+    5 / 13;
+
+  grid-row:
+    3 / 4;
+}
+
+
+.roofing-gallery-item img {
+
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition:
+    transform 0.65s ease,
+    filter 0.35s ease;
+}
+
+
+.roofing-gallery-item:hover img {
+
+  transform:
+    scale(1.045);
+
+  filter:
+    brightness(0.78);
+}
+
+
+.roofing-gallery-view {
+
+  position: absolute;
+
+  right: 15px;
+  bottom: 15px;
+
+  min-height: 43px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding:
+    0
+    15px;
+
+  border-radius:
+    999px;
+
+  background:
+    rgba(255, 255, 255, 0.94);
+
+  color:
+    var(--roof-blue-dark);
+
+  font-family:
+    var(--font-subheading);
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  opacity: 0;
+
+  transform:
+    translateY(8px);
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+.roofing-gallery-item:hover
+.roofing-gallery-view,
+
+.roofing-gallery-item:focus-visible
+.roofing-gallery-view {
+
+  opacity: 1;
+
+  transform:
+    translateY(0);
+}
+
+
+
+/* =========================================================
+   LOCATION
+   ========================================================= */
+
+.roofing-location-section {
+
+  padding:
+    clamp(
+      105px,
+      8vw,
+      140px
+    )
+    0;
+
+  background:
+    var(--roof-grey);
+}
+
+
+.roofing-location-layout {
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(390px, 0.72fr);
+
+  align-items: center;
+
+  gap:
+    clamp(
+      65px,
+      9vw,
+      140px
+    );
+}
+
+
+.roofing-location-section h2 span {
+
+  display: block;
+
+  color:
+    #68798e;
+}
+
+
+.roofing-page main
+.roofing-location-copy p {
+
+  margin:
+    0
+    0
+    18px;
+
+  color:
+    #435466;
+}
+
+
+.roofing-location-pills {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 9px;
+
+  margin-top: 27px;
+}
+
+
+.roofing-location-pills span {
+
+  min-height: 42px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  padding:
+    0
+    16px;
+
+  border:
+    1px solid
+    rgba(13, 34, 60, 0.15);
+
+  border-radius:
+    999px;
+
+  background:
+    rgba(255, 255, 255, 0.52);
+
+  color:
+    var(--roof-blue-dark);
+
+  font-family:
+    var(--font-subheading);
+
+  font-size: 14px;
+
+  font-weight: 700;
+}
+
+
+
+/* =========================================================
+   FINAL CTA
+   ========================================================= */
+
+.roofing-final-section {
+
+  position: relative;
+
+  min-height: 540px;
+
+  display: flex;
+
+  align-items: center;
+
+  overflow: hidden;
+
+  background-image:
+    url(
+      "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=2200"
+    );
+
+  background-position:
+    center;
+
+  background-size:
+    cover;
+}
+
+
+.roofing-final-overlay {
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(7, 25, 44, 0.92)
+      0%,
+
+      rgba(7, 25, 44, 0.82)
+      55%,
+
+      rgba(7, 25, 44, 0.54)
+      100%
+    );
+}
+
+
+.roofing-final-content {
+
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 880px;
+
+  padding:
+    92px
+    0;
+}
+
+
+.roofing-final-content h2 {
+
+  margin: 0;
+
+  color:
+    var(--roof-white);
+
+  font-family:
+    var(--font-heading);
+
+  font-size:
+    clamp(
+      3.5rem,
+      5vw,
+      5.5rem
+    );
+
+  font-weight: 700;
+
+  line-height: 0.94;
+
+  letter-spacing:
+    -0.055em;
+}
+
+
+.roofing-final-content h2 span {
+
+  display: block;
+
+  color:
+    var(--roof-grey);
+}
+
+
+.roofing-page main
+.roofing-final-content
+> p:not(.roofing-section-label) {
+
+  max-width: 700px;
+
+  margin:
+    24px
+    0
+    0;
+
+  color:
+    rgba(255, 255, 255, 0.76);
+}
+
+
+.roofing-final-actions {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 11px;
+
+  margin-top: 30px;
+}
+
+
+
+/* =========================================================
+   PAGE-SPECIFIC MOBILE CAROUSELS
+
+   Service carousel uses existing generic data-scroller code.
+   Testimonials DO NOT use this. They use global testimonial JS.
+   ========================================================= */
+
+.roofing-mobile-carousel {
+
+  position: relative;
+
+  min-width: 0;
+}
+
+
+.roofing-carousel-arrow {
+
+  display: none;
+}
+
+
+
+/* =========================================================
+   LIGHTBOX
+   ========================================================= */
+
+body.roofing-lightbox-open {
+
+  overflow: hidden;
+}
+
+
+.roofing-lightbox {
+
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 13000;
+
+  display: none;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 28px;
+}
+
+
+.roofing-lightbox.is-open {
+
+  display: flex;
+}
+
+
+.roofing-lightbox-backdrop {
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    rgba(7, 17, 29, 0.95);
+
+  backdrop-filter:
+    blur(10px);
+}
+
+
+.roofing-lightbox-inner {
+
+  position: relative;
+
+  z-index: 2;
+
+  width:
+    min(
+      1180px,
+      100%
+    );
+
+  height:
+    min(
+      780px,
+      calc(100vh - 56px)
+    );
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+
+.roofing-lightbox figure {
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  margin: 0;
+}
+
+
+.roofing-lightbox figure img {
+
+  max-width: 100%;
+
+  max-height:
+    calc(100% - 60px);
+
+  object-fit: contain;
+
+  border-radius: 23px;
+}
+
+
+.roofing-lightbox figcaption {
+
+  min-height: 42px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding-top: 15px;
+
+  color:
+    var(--roof-white);
+
+  font-size: 15px;
+}
+
+
+.roofing-lightbox-close {
+
+  position: fixed;
+
+  top: 24px;
+  right: 24px;
+
+  z-index: 5;
+
+  min-height: 52px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  padding:
+    0
+    19px;
+
+  border: 0;
+
+  border-radius:
+    999px;
+
+  background:
+    var(--roof-grey);
+
+  color:
+    var(--roof-blue-dark);
+
+  font-family:
+    var(--font-subheading);
+
+  font-size: 15px;
+
+  font-weight: 700;
+}
+
+
+.roofing-lightbox-nav {
+
+  position: fixed;
+
+  top: 50%;
+
+  z-index: 5;
+
+  width: 55px;
+  height: 55px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+
+  border-radius: 50%;
+
+  background:
+    var(--roof-grey);
+
+  color:
+    var(--roof-blue-dark);
+
+  transform:
+    translateY(-50%);
+}
+
+
+.roofing-lightbox-prev {
+
+  left: 25px;
+}
+
+
+.roofing-lightbox-next {
+
+  right: 25px;
+}
+
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+  .roofing-services-grid {
+
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+  }
+
+
+  .roofing-epdm-panel {
+
+    grid-template-columns:
+      minmax(
+        360px,
+        470px
+      )
+      minmax(
+        0,
+        1fr
+      );
+
+    gap: 42px;
+  }
+
+
+  .roofing-why-layout {
+
+    grid-template-columns:
+      minmax(350px, 0.8fr)
+      minmax(0, 1.2fr);
+
+    gap: 55px;
+  }
+
+
+  .roofing-why-visual {
+
+    min-height: 610px;
+  }
+
+}
+
+
+
+@media (max-width: 900px) {
+
+  .roofing-container {
+
+    width:
+      min(
+        calc(100% - 36px),
+        1480px
+      );
+  }
+
+
+  .roofing-section-heading-wide,
+  .roofing-gallery-heading,
+  .roofing-location-layout {
+
+    grid-template-columns:
+      1fr;
+
+    gap: 28px;
+  }
+
+
+  .roofing-epdm-panel {
+
+    grid-template-columns:
+      minmax(
+        310px,
+        410px
+      )
+      minmax(
+        0,
+        1fr
+      );
+
+    gap: 30px;
+  }
+
+
+  .roofing-epdm-content {
+
+    padding-right: 10px;
+  }
+
+
+  .roofing-why-layout {
+
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .roofing-why-visual {
+
+    min-height: 500px;
+  }
+
+}
+
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 767.98px) {
+
+
+  .roofing-page main p,
+  .roofing-page main li {
+
+    font-size: 16px;
+  }
+
+
+  .roofing-container {
+
+    width:
+      calc(100% - 28px);
+  }
+
+
+
+  /* HERO */
+
+  .roofing-hero {
+
+    min-height: 610px;
+
+    background-position:
+      63%
+      center;
+  }
+
+
+  .roofing-hero-overlay {
+
+    background:
+      linear-gradient(
+        180deg,
+        rgba(7, 25, 44, 0.73)
+        0%,
+
+        rgba(7, 25, 44, 0.89)
+        58%,
+
+        rgba(7, 25, 44, 0.97)
+        100%
+      );
+  }
+
+
+  .roofing-hero-inner {
+
+    padding:
+      122px
+      0
+      54px;
+  }
+
+
+  .roofing-hero-content {
+
+    max-width: 100%;
+
+    text-align: center;
+  }
+
+
+  .roofing-hero h1 {
+
+    font-size:
+      clamp(
+        3rem,
+        13vw,
+        4.25rem
+      );
+  }
+
+
+  .roofing-page main
+  .roofing-hero-lead {
+
+    max-width: 560px;
+
+    margin-inline: auto;
+
+    font-size: 17px;
+  }
+
+
+  .roofing-hero-actions {
+
+    max-width: 410px;
+
+    flex-direction: column;
+
+    margin:
+      29px
+      auto
+      0;
+  }
+
+
+  .roofing-hero-actions
+  .roofing-button {
+
+    width: 100%;
+  }
+
+
+
+  /* SECTION SPACING */
+
+  .roofing-services-section,
+  .roofing-epdm-section,
+  .roofing-why-section,
+  .roofing-gallery-section,
+  .roofing-location-section {
+
+    padding:
+      78px
+      0;
+  }
+
+
+
+  /* HEADINGS */
+
+  .roofing-section-heading h2,
+  .roofing-gallery-heading h2,
+  .roofing-location-section h2,
+  .roofing-why-content h2,
+  .roofing-epdm-content h2,
+  .roofing-final-content h2 {
+
+    font-size:
+      clamp(
+        2.55rem,
+        10.8vw,
+        3.8rem
+      );
+  }
+
+
+
+  /* =======================================================
+     MOBILE SERVICE CAROUSEL
+     ======================================================= */
+
+  .roofing-mobile-carousel {
+
+    width: 100%;
+  }
+
+
+  .roofing-mobile-track {
+
+    display: flex !important;
+
+    grid-template-columns:
+      none !important;
+
+    gap:
+      13px !important;
+
+    overflow-x: auto;
+
+    overflow-y: hidden;
+
+    padding:
+      4px
+      43px
+      13px;
+
+    scroll-padding-inline:
+      43px;
+
+    scroll-snap-type:
+      x mandatory;
+
+    overscroll-behavior-inline:
+      contain;
+
+    -webkit-overflow-scrolling:
+      touch;
+
+    scrollbar-width:
+      none;
+  }
+
+
+  .roofing-mobile-track::-webkit-scrollbar {
+
+    display: none;
+  }
+
+
+  .roofing-mobile-track
+  > .scroll-item {
+
+    min-width: 0;
+
+    flex:
+      0
+      0
+      min(
+        82vw,
+        390px
+      );
+
+    scroll-snap-align:
+      center;
+
+    scroll-snap-stop:
+      always;
+  }
+
+
+  .roofing-carousel-arrow {
+
+    position: absolute;
+
+    top: 50%;
+
+    z-index: 30;
+
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border:
+      1px solid
+      rgba(255, 255, 255, 0.72);
+
+    border-radius: 50%;
+
+    background:
+      rgba(22, 49, 83, 0.97);
+
+    color:
+      var(--roof-white);
+
+    box-shadow:
+      0
+      10px
+      25px
+      rgba(13, 34, 60, 0.24);
+
+    transform:
+      translateY(-50%);
+  }
+
+
+  .roofing-carousel-prev {
+
+    left: 0;
+  }
+
+
+  .roofing-carousel-next {
+
+    right: 0;
+  }
+
+
+
+  /* SERVICE CARDS */
+
+  .roofing-service-card {
+
+    min-height: 585px;
+
+    border-radius: 24px;
+  }
+
+
+  .roofing-service-image {
+
+    height: 230px;
+
+    flex-basis: 230px;
+  }
+
+
+  .roofing-service-content {
+
+    min-height: 355px;
+
+    padding:
+      27px
+      25px
+      25px;
+  }
+
+
+  .roofing-service-content h3 {
+
+    font-size: 1.7rem;
+  }
+
+
+  .roofing-card-button {
+
+    width: 100%;
+  }
+
+
+
+  /* =======================================================
+     EPDM
+     Image remains square.
+     ======================================================= */
+
+  .roofing-epdm-panel {
+
+    display: block;
+
+    padding: 14px;
+
+    border-radius: 24px;
+  }
+
+
+  .roofing-epdm-image {
+
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    border-radius: 19px;
+  }
+
+
+  .roofing-epdm-content {
+
+    padding:
+      34px
+      13px
+      22px;
+  }
+
+
+  .roofing-page main
+  .roofing-epdm-content
+  > p:not(.roofing-section-label) {
+
+    font-size: 16px;
+  }
+
+
+  .roofing-epdm-button {
+
+    width: 100%;
+  }
+
+
+
+  /* WHY US */
+
+  .roofing-why-layout {
+
+    display: block;
+  }
+
+
+  .roofing-why-visual {
+
+    min-height: 380px;
+
+    margin-bottom: -42px;
+
+    border-radius:
+      24px
+      24px
+      0
+      0;
+  }
+
+
+  .roofing-why-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    padding:
+      32px
+      25px;
+
+    border-radius: 24px;
+
+    background:
+      var(--roof-white);
+
+    box-shadow:
+      0
+      20px
+      50px
+      rgba(13, 34, 60, 0.10);
+  }
+
+
+  .roofing-page main
+  .roofing-why-intro {
+
+    font-size: 17px;
+  }
+
+
+  .roofing-why-item {
+
+    grid-template-columns:
+      45px
+      minmax(0, 1fr);
+
+    gap: 13px;
+  }
+
+
+  .roofing-why-icon {
+
+    width: 42px;
+    height: 42px;
+
+    border-radius: 13px;
+  }
+
+
+
+  /* =======================================================
+     TESTIMONIALS
+
+     No CSS here.
+     global.css controls mobile testimonials and arrows.
+     ======================================================= */
+
+
+
+  /* =======================================================
+     MOSAIC GALLERY
+     ======================================================= */
+
+  .roofing-gallery-grid {
+
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+
+    grid-template-rows:
+      270px
+      170px
+      170px
+      220px;
+
+    gap: 9px;
+  }
+
+
+  .roofing-gallery-item {
+
+    border-radius: 18px;
+  }
+
+
+  .roofing-gallery-item-1 {
+
+    grid-column:
+      1 / 3;
+
+    grid-row:
+      1 / 2;
+  }
+
+
+  .roofing-gallery-item-2 {
+
+    grid-column:
+      1 / 2;
+
+    grid-row:
+      2 / 4;
+  }
+
+
+  .roofing-gallery-item-3 {
+
+    grid-column:
+      2 / 3;
+
+    grid-row:
+      2 / 3;
+  }
+
+
+  .roofing-gallery-item-4 {
+
+    grid-column:
+      2 / 3;
+
+    grid-row:
+      3 / 4;
+  }
+
+
+  .roofing-gallery-item-5 {
+
+    grid-column:
+      1 / 2;
+
+    grid-row:
+      4 / 5;
+  }
+
+
+  .roofing-gallery-item-6 {
+
+    grid-column:
+      2 / 3;
+
+    grid-row:
+      4 / 5;
+  }
+
+
+  .roofing-gallery-view {
+
+    right: 9px;
+    bottom: 9px;
+
+    min-height: 38px;
+
+    padding:
+      0
+      12px;
+
+    opacity: 1;
+
+    transform: none;
+  }
+
+
+
+  /* =======================================================
+     LOCATION PILLS
+     STACKED / ALL VISIBLE
+     ======================================================= */
+
+  .roofing-location-layout {
+
+    gap: 35px;
+  }
+
+
+  .roofing-location-pills {
+
+    display: grid;
+
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+
+    gap: 9px;
+
+    overflow: visible;
+
+    padding: 0;
+  }
+
+
+  .roofing-location-pills span {
+
+    width: 100%;
+
+    min-height: 46px;
+
+    justify-content: center;
+
+    text-align: center;
+  }
+
+
+
+  /* FINAL CTA */
+
+  .roofing-final-section {
+
+    min-height: 550px;
+
+    text-align: center;
+  }
+
+
+  .roofing-final-overlay {
+
+    background:
+      rgba(7, 25, 44, 0.86);
+  }
+
+
+  .roofing-final-content {
+
+    max-width: 700px;
+
+    margin-inline: auto;
+
+    padding:
+      80px
+      0;
+  }
+
+
+  .roofing-page main
+  .roofing-final-content
+  > p:not(.roofing-section-label) {
+
+    margin-inline: auto;
+  }
+
+
+  .roofing-final-actions {
+
+    max-width: 410px;
+
+    flex-direction: column;
+
+    margin:
+      29px
+      auto
+      0;
+  }
+
+
+  .roofing-final-actions
+  .roofing-button {
+
+    width: 100%;
+  }
+
+
+
+  /* LIGHTBOX */
+
+  .roofing-lightbox {
+
+    padding: 12px;
+  }
+
+
+  .roofing-lightbox-inner {
+
+    width: 100%;
+
+    height: 100%;
+  }
+
+
+  .roofing-lightbox figure {
+
+    padding:
+      76px
+      0;
+  }
+
+
+  .roofing-lightbox figure img {
+
+    max-height: 100%;
+
+    border-radius: 17px;
+  }
+
+
+  .roofing-lightbox-close {
+
+    top: 14px;
+    right: 14px;
+
+    min-height: 51px;
+
+    background:
+      var(--roof-white);
+
+    box-shadow:
+      0
+      10px
+      30px
+      rgba(0, 0, 0, 0.25);
+  }
+
+
+  .roofing-lightbox-nav {
+
+    top: auto;
+
+    bottom: 16px;
+
+    width: 49px;
+    height: 49px;
+
+    background:
+      var(--roof-white);
+
+    transform: none;
+  }
+
+
+  .roofing-lightbox-prev {
+
+    left:
+      calc(
+        50% - 58px
+      );
+  }
+
+
+  .roofing-lightbox-next {
+
+    right:
+      calc(
+        50% - 58px
+      );
+  }
+
+
+  .roofing-lightbox figcaption {
+
+    position: absolute;
+
+    right: 12px;
+    bottom: 76px;
+    left: 12px;
+
+    min-height: auto;
+
+    padding: 0;
+
+    text-align: center;
+  }
+
+}
+
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 575.98px) {
+
+  .roofing-hero {
+
+    min-height: 600px;
+  }
+
+
+  .roofing-mobile-track {
+
+    gap:
+      11px !important;
+
+    padding-right: 39px;
+
+    padding-left: 39px;
+
+    scroll-padding-inline:
+      39px;
+  }
+
+
+  .roofing-mobile-track
+  > .scroll-item {
+
+    flex-basis:
+      min(
+        84vw,
+        355px
+      );
+  }
+
+
+  .roofing-carousel-arrow {
+
+    width: 41px;
+    height: 41px;
+  }
+
+
+  .roofing-service-card {
+
+    min-height: 565px;
+  }
+
+
+  .roofing-service-image {
+
+    height: 215px;
+
+    flex-basis: 215px;
+  }
+
+
+  .roofing-service-content {
+
+    padding:
+      25px
+      22px
+      22px;
+  }
+
+
+  .roofing-why-visual {
+
+    min-height: 340px;
+  }
+
+
+  .roofing-gallery-grid {
+
+    grid-template-rows:
+      245px
+      150px
+      150px
+      185px;
+  }
+
+
+  .roofing-location-pills {
+
+    grid-template-columns:
+      1fr;
+  }
+
+}
+
+
+
+/* =========================================================
+   TOUCH DEVICES
+   ========================================================= */
+
+@media (hover: none) {
+
+  .roofing-gallery-view {
+
+    opacity: 1;
+
+    transform: none;
+  }
+
+
+  .roofing-service-card:hover,
+  .roofing-card-button:hover,
+  .roofing-button:hover,
+  .roofing-epdm-button:hover {
+
+    transform: none;
+  }
+
+
+  .roofing-service-card:hover
+  .roofing-service-image img,
+
+  .roofing-epdm-panel:hover
+  .roofing-epdm-image img,
+
+  .roofing-gallery-item:hover img {
+
+    transform: none;
+  }
+
+}
+
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .roofing-service-card,
+  .roofing-service-image img,
+  .roofing-gallery-item img,
+  .roofing-gallery-view,
+  .roofing-button,
+  .roofing-card-button,
+  .roofing-epdm-button {
+
+    transition:
+      none !important;
+  }
+
+
+  .roofing-mobile-track {
+
+    scroll-behavior: auto;
+  }
+
+}

@@ -124,15 +124,12 @@
        ===================================================== -->
 
   <div data-global-header></div>
-
-
-
   <main id="main-content">
 
+<!-- =========================================================
+     HERO
+     ========================================================= -->
 
-    <!-- ===================================================
-         HERO
-         =================================================== -->
 <section
   class="home-hero"
   aria-labelledby="hero-title"
@@ -140,10 +137,15 @@
 
   <div class="hero-inner">
 
+
+    <!-- =====================================================
+         HERO COPY
+         ===================================================== -->
+
     <div class="hero-content">
 
       <p class="hero-eyebrow">
-        Llangefni-based roofers serving Anglesey &amp; nearby areas
+        Llangefni Roofers · Anglesey &amp; North Wales
       </p>
 
 
@@ -156,49 +158,59 @@
 
 
       <p class="hero-description">
-        From complete roof replacements and roof repairs to specialist
-        EPDM rubber flat roofing, rendering and plastering, Lewis Brothers
-        helps homeowners and property owners across Anglesey, protect,
-        repair and improve their properties.
+        New roofs, roof repairs, EPDM rubber flat roofing,
+        plastering and rendering for homes and properties
+        across Anglesey and North Wales.
       </p>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         HERO QUOTE FORM
+         ===================================================== -->
+
+    <aside
+      class="hero-form-card"
+      aria-label="Request a quote"
+    >
+
+      <div class="hero-form-header">
+
+        <p>
+          Request a Quote
+        </p>
+
+        <span>
+          Get Started
+        </span>
+
+      </div>
 
 
       <form
-        class="hero-form web3form"
+        class="lead-form hero-form"
         id="heroQuoteForm"
-        aria-label="Request a free roofing or plastering quote"
         novalidate
       >
 
-        <input
-          type="hidden"
-          name="access_key"
-          value="YOUR_WEB3FORMS_ACCESS_KEY"
-        >
+        <!-- Honeypot -->
 
         <input
-          type="hidden"
-          name="subject"
-          value="New Website Quote Request - Lewis Brothers Roofing & Plastering"
-        >
-
-        <input
-          type="hidden"
-          name="from_name"
-          value="Lewis Brothers Website"
-        >
-
-        <input
-          type="checkbox"
-          name="botcheck"
-          class="d-none"
+          type="text"
+          name="company_website"
           tabindex="-1"
           autocomplete="off"
+          class="visually-hidden"
+          aria-hidden="true"
         >
 
 
         <div class="hero-form-grid">
 
+
+          <!-- NAME -->
 
           <div class="hero-field">
 
@@ -215,12 +227,18 @@
               type="text"
               placeholder="Full name"
               autocomplete="name"
-              minlength="2"
               required
             >
 
+            <div class="invalid-feedback">
+              Please enter your name.
+            </div>
+
           </div>
 
+
+
+          <!-- PHONE -->
 
           <div class="hero-field">
 
@@ -241,10 +259,17 @@
               required
             >
 
+            <div class="invalid-feedback">
+              Please enter a valid UK phone number.
+            </div>
+
           </div>
 
 
-          <div class="hero-field">
+
+          <!-- EMAIL -->
+
+          <div class="hero-field hero-field-wide">
 
             <label
               for="hero-email"
@@ -262,10 +287,17 @@
               required
             >
 
+            <div class="invalid-feedback">
+              Please enter a valid email address.
+            </div>
+
           </div>
 
 
-          <div class="hero-field">
+
+          <!-- SERVICE -->
+
+          <div class="hero-field hero-field-wide">
 
             <label
               for="hero-service"
@@ -285,19 +317,19 @@
                 selected
                 disabled
               >
-                Service needed
+                What work do you need?
               </option>
 
               <option value="EPDM Rubber Flat Roofing">
-                EPDM rubber flat roofing
+                EPDM Rubber Flat Roofing
               </option>
 
-              <option value="New Roof">
-                New roof
+              <option value="New Roof or Re-Roofing">
+                New Roof / Re-Roofing
               </option>
 
               <option value="Roof Repair">
-                Roof repair
+                Roof Repair
               </option>
 
               <option value="Plastering">
@@ -309,52 +341,56 @@
               </option>
 
               <option value="Other Roofing Work">
-                Other roofing work
+                Other Roofing Work
               </option>
 
             </select>
 
+            <div class="invalid-feedback">
+              Please choose a service.
+            </div>
+
           </div>
 
 
-          <div class="hero-field">
+
+          <!-- LOCATION -->
+
+          <div class="hero-field hero-field-wide">
 
             <label
               for="hero-location"
               class="visually-hidden"
             >
-              Property location or postcode
+              Property location
             </label>
 
             <input
               id="hero-location"
               name="location"
               type="text"
-              placeholder="Location / postcode"
+              placeholder="Town / postcode"
               autocomplete="postal-code"
-              minlength="2"
               required
             >
+
+            <div class="invalid-feedback">
+              Please enter the property location or postcode.
+            </div>
 
           </div>
 
 
-          <div class="hero-field">
+
+          <!-- SUBMIT -->
+
+          <div class="hero-field hero-field-wide">
 
             <button
               class="hero-submit"
               type="submit"
             >
-
-              <span>
-                Get a Free Quote
-              </span>
-
-              <i
-                class="bi bi-arrow-right"
-                aria-hidden="true"
-              ></i>
-
+              Get a Free Quote
             </button>
 
           </div>
@@ -364,7 +400,8 @@
 
       </form>
 
-    </div>
+    </aside>
+
 
   </div>
 
@@ -920,27 +957,17 @@
 
 </section>
 
-<!-- =========================================================
-     PROJECT GALLERY
-     ========================================================= -->
-
 <section
   class="gallery-section"
   id="gallery"
   aria-labelledby="gallery-title"
+  data-scroller-wrap
 >
-
   <div class="site-container">
-
-
-    <!-- =====================================================
-         GALLERY HEADER
-         ===================================================== -->
 
     <div class="gallery-header">
 
       <div>
-
         <p class="gallery-eyebrow">
           Project Gallery
         </p>
@@ -951,9 +978,7 @@
         >
           Recent Roofing &amp; Plastering Work
         </h2>
-
       </div>
-
 
       <p class="gallery-intro">
         A closer look at roofing, flat roofing,
@@ -961,22 +986,37 @@
         by the Lewis Brothers team.
       </p>
 
+      <div
+        class="gallery-mobile-controls"
+        aria-label="Gallery controls"
+      >
+        <button
+          class="gallery-scroll-control"
+          type="button"
+          data-scroll-prev
+          aria-label="Previous project"
+        >
+          <i class="bi bi-chevron-left" aria-hidden="true"></i>
+        </button>
+
+        <button
+          class="gallery-scroll-control"
+          type="button"
+          data-scroll-next
+          aria-label="Next project"
+        >
+          <i class="bi bi-chevron-right" aria-hidden="true"></i>
+        </button>
+      </div>
+
     </div>
 
+    <div
+      class="gallery-grid"
+      data-scroller
+    >
 
-
-    <!-- =====================================================
-         GALLERY GRID
-         Replace these with the client's real project images.
-         ===================================================== -->
-
-    <div class="gallery-grid">
-
-
-      <!-- LARGE LEFT -->
-
-      <figure class="gallery-item gallery-item-large">
-
+      <figure class="gallery-item gallery-item-large scroll-item">
         <img
           src="images/gallery-roofing-01.jpg"
           alt="Completed roofing project by Lewis Brothers"
@@ -984,25 +1024,12 @@
         >
 
         <figcaption class="gallery-caption">
-
-          <span>
-            Roofing
-          </span>
-
-          <strong>
-            Roof Installation
-          </strong>
-
+          <span>Roofing</span>
+          <strong>Roof Installation</strong>
         </figcaption>
-
       </figure>
 
-
-
-      <!-- TOP CENTRE -->
-
-      <figure class="gallery-item gallery-item-small">
-
+      <figure class="gallery-item gallery-item-small scroll-item">
         <img
           src="images/gallery-epdm-01.jpg"
           alt="EPDM rubber flat roofing project"
@@ -1010,25 +1037,12 @@
         >
 
         <figcaption class="gallery-caption">
-
-          <span>
-            Flat Roofing
-          </span>
-
-          <strong>
-            EPDM Rubber Roofing
-          </strong>
-
+          <span>Flat Roofing</span>
+          <strong>EPDM Rubber Roofing</strong>
         </figcaption>
-
       </figure>
 
-
-
-      <!-- TOP RIGHT -->
-
-      <figure class="gallery-item gallery-item-small">
-
+      <figure class="gallery-item gallery-item-small scroll-item">
         <img
           src="images/gallery-rendering-01.jpg"
           alt="Exterior rendering project"
@@ -1036,25 +1050,12 @@
         >
 
         <figcaption class="gallery-caption">
-
-          <span>
-            Rendering
-          </span>
-
-          <strong>
-            Exterior Finish
-          </strong>
-
+          <span>Rendering</span>
+          <strong>Exterior Finish</strong>
         </figcaption>
-
       </figure>
 
-
-
-      <!-- BOTTOM WIDE -->
-
-      <figure class="gallery-item gallery-item-wide">
-
+      <figure class="gallery-item gallery-item-wide scroll-item">
         <img
           src="images/gallery-roofing-02.jpg"
           alt="Roof repair and property improvement project"
@@ -1062,25 +1063,16 @@
         >
 
         <figcaption class="gallery-caption">
-
-          <span>
-            Roofing
-          </span>
-
-          <strong>
-            Repairs &amp; Improvements
-          </strong>
-
+          <span>Roofing</span>
+          <strong>Repairs &amp; Improvements</strong>
         </figcaption>
-
       </figure>
-
 
     </div>
 
   </div>
-
 </section>
+
 <!-- =========================================================
      TESTIMONIALS
      ========================================================= -->
@@ -1100,11 +1092,10 @@
 
     <div class="testimonials-header">
 
-
       <div class="testimonials-heading">
 
         <p class="testimonials-eyebrow">
-          Testimonials
+          Customer Reviews
         </p>
 
         <h2
@@ -1114,699 +1105,613 @@
           What Our Customers Say
         </h2>
 
-        <p class="testimonials-intro">
-          Read feedback from customers who have chosen Lewis Brothers
-          for roofing, flat roofing, plastering and rendering work.
-        </p>
-
       </div>
 
+    </div>
+
+
+
+    <!-- =====================================================
+         REVIEWS LAYOUT
+         ===================================================== -->
+
+    <div class="testimonials-showcase">
 
 
       <!-- ===================================================
-           GOOGLE REVIEWS
+           GOOGLE CARD
            =================================================== -->
 
-      <div class="google-review-panel">
+      <aside class="google-review-panel">
 
-        <div class="google-review-brand">
-
-          <img
-            src="https://www.gstatic.com/images/branding/product/2x/googleg_48dp.png"
-            alt="Google"
-            width="48"
-            height="48"
-            class="google-review-logo"
-          >
+        <div class="google-review-icon">
+          <i
+            class="bi bi-google"
+            aria-hidden="true"
+          ></i>
+        </div>
 
 
-          <div class="google-review-rating">
+        <div>
 
-            <div class="google-review-score">
-              <strong>5.0</strong>
-              <span>/ 5</span>
-            </div>
+          <p class="google-review-label">
+            Google Reviews
+          </p>
 
-            <div
-              class="google-review-stars"
-              aria-label="5 out of 5 stars"
-            >
-              ★★★★★
-            </div>
-
-          </div>
+          <h3>
+            See More Customer Reviews
+          </h3>
 
         </div>
 
 
-        <div class="google-review-text">
-
-          <strong>
-            Rated 5/5 on Google
-          </strong>
-
-          <span>
-            View more feedback on our Google Business Profile.
-          </span>
-
+        <div
+          class="google-review-stars"
+          aria-hidden="true"
+        >
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
         </div>
+
+
+        <p class="google-review-copy">
+          Read more feedback from customers who have worked
+          with Lewis Brothers Roofing &amp; Plastering.
+        </p>
 
 
         <a
           class="google-review-button"
-          href="https://share.google/GlkfZgdUrw2BeA23Q"
+          href="{{GOOGLE_BUSINESS}}"
           target="_blank"
           rel="noopener noreferrer"
         >
           See Google Reviews
         </a>
 
+      </aside>
+
+
+
+      <!-- ===================================================
+           TESTIMONIAL SLIDER
+           =================================================== -->
+
+      <div class="testimonials-slider">
+
+
+        <!-- CONTROLS -->
+
+        <div class="testimonials-toolbar">
+
+          <div
+            class="testimonial-controls"
+            aria-label="Testimonial controls"
+          >
+
+            <button
+              class="testimonial-control"
+              type="button"
+              data-testimonial-prev
+              aria-label="Previous testimonials"
+            >
+              <i
+                class="bi bi-chevron-left"
+                aria-hidden="true"
+              ></i>
+            </button>
+
+
+            <button
+              class="testimonial-control"
+              type="button"
+              data-testimonial-next
+              aria-label="Next testimonials"
+            >
+              <i
+                class="bi bi-chevron-right"
+                aria-hidden="true"
+              ></i>
+            </button>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             TRACK
+             ================================================= -->
+
+        <div
+  class="testimonials-track"
+  id="testimonialsTrack"
+  data-testimonials-track
+>
+
+          <!-- REVIEW 01 -->
+
+          <article class="testimonial-review scroll-item is-long">
+
+            <div class="testimonial-card">
+
+              <div class="testimonial-stars">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
+
+
+              <div class="testimonial-quote-wrap">
+
+                <p class="testimonial-quote">
+                  Large side chimney stack removal, to include repairs to roof slates and remaining chimney stack. Competitively priced quote provided. Started and concluded on time as agreed with excellent communication and customer care throughout by Lee and Carl. Diolch yn fawr.
+                </p>
+
+              </div>
+
+
+              <button
+                class="testimonial-read-button"
+                type="button"
+                aria-expanded="false"
+              >
+                Read more
+              </button>
+
+
+              <div class="testimonial-author">
+
+                <strong>
+                  Al Ginnelly
+                </strong>
+
+                <span>
+                  Customer review
+                </span>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- REVIEW 02 -->
+
+          <article class="testimonial-review scroll-item">
+
+            <div class="testimonial-card">
+
+              <div class="testimonial-stars">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
+
+
+              <div class="testimonial-quote-wrap">
+
+                <p class="testimonial-quote">
+                  Lee and the team did a fantastic job re-rendering the bungalow. They kept the place tidy as they worked and very polite and respectful. Nice to see the bungalow looking so well. All work guaranteed
+                </p>
+
+              </div>
+
+
+              <div class="testimonial-author">
+
+                <strong>
+                  Ruby Russell
+                </strong>
+
+                <span>
+                  Customer review
+                </span>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- REVIEW 03 -->
+
+          <article class="testimonial-review scroll-item is-long">
+
+            <div class="testimonial-card">
+
+              <div class="testimonial-stars">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
+
+
+              <div class="testimonial-quote-wrap">
+
+                <p class="testimonial-quote">
+                  Had a large room plastered by Lewis Brothers Roofing and Plastering and they did an absolutely brilliant job. They were on time, easy to deal with, and kept everything tidy. The finish on the walls is spot-on. Would definitely use them again and happily recommend them to anyone needing plastering done.
+                </p>
+
+              </div>
+
+
+              <button
+                class="testimonial-read-button"
+                type="button"
+                aria-expanded="false"
+              >
+                Read more
+              </button>
+
+
+              <div class="testimonial-author">
+
+                <strong>
+                  Paul Crockford
+                </strong>
+
+                <span>
+                  Customer review
+                </span>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- REVIEW 04 -->
+
+          <article class="testimonial-review scroll-item is-long">
+
+            <div class="testimonial-card">
+
+              <div class="testimonial-stars">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
+
+
+              <div class="testimonial-quote-wrap">
+
+                <p class="testimonial-quote">
+                  We had a very tricky rendering job done of a gable end above a kitchen extension . Right from the pricing of the job to finishing Lewis Brothers were very professional. The lads were very hard working and polite and did an excellent job . We would highly recommend Lewis Brothers
+                </p>
+
+              </div>
+
+
+              <button
+                class="testimonial-read-button"
+                type="button"
+                aria-expanded="false"
+              >
+                Read more
+              </button>
+
+
+              <div class="testimonial-author">
+
+                <strong>
+                  samantha hallwood
+                </strong>
+
+                <span>
+                  Customer review
+                </span>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- REVIEW 05 -->
+
+          <article class="testimonial-review scroll-item is-long">
+
+            <div class="testimonial-card">
+
+              <div class="testimonial-stars">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
+
+
+              <div class="testimonial-quote-wrap">
+
+                <p class="testimonial-quote">
+                  The best around !! I asked them to come and plaster my new home and they did an absolutely brilliant job of it definitely recommend Lewis brother and the team fantastic lads very polite and reliable and very respectful lads Definitely be using Lewis brother in the future and will be recommending them to my friends and family
+                </p>
+
+              </div>
+
+
+              <button
+                class="testimonial-read-button"
+                type="button"
+                aria-expanded="false"
+              >
+                Read more
+              </button>
+
+
+              <div class="testimonial-author">
+
+                <strong>
+                  Gareth Roberts
+                </strong>
+
+                <span>
+                  Customer review
+                </span>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- REVIEW 06 -->
+
+          <article class="testimonial-review scroll-item">
+
+            <div class="testimonial-card">
+
+              <div class="testimonial-stars">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
+
+
+              <div class="testimonial-quote-wrap">
+
+                <p class="testimonial-quote">
+                  We had a flat roof, lantern window, sun tunnels and the front of the bungalow rendered. The workmanship is top notch and Carl is a star. Had a little wobble in the middle but all was completed to an excellent standard so alls well that ends well.
+                </p>
+
+              </div>
+
+
+              <div class="testimonial-author">
+
+                <strong>
+                  Rita Thomas
+                </strong>
+
+                <span>
+                  Customer review
+                </span>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- REVIEW 07 -->
+
+          <article class="testimonial-review scroll-item is-long">
+
+            <div class="testimonial-card">
+
+              <div class="testimonial-stars">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
+
+
+              <div class="testimonial-quote-wrap">
+
+                <p class="testimonial-quote">
+                  Lewis Brothers fitted a new roof about 3 years ago - all work guaranteed. Following storm Darragh we needed minor repairs to the cladding of the North facing dormer window. Carl and Barry came over and the cladding was fixed in less than an hour. ALL DONE FREE OF CHARGE. Can thoroughly recommend their services. Tidy workers, very polite and easy to get on with. Diolch yn fawr (many thanks) Lee!
+                </p>
+
+              </div>
+
+
+              <button
+                class="testimonial-read-button"
+                type="button"
+                aria-expanded="false"
+              >
+                Read more
+              </button>
+
+
+              <div class="testimonial-author">
+
+                <strong>
+                  Kate Ross-Bowker
+                </strong>
+
+                <span>
+                  Customer review
+                </span>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- REVIEW 08 -->
+
+          <article class="testimonial-review scroll-item is-long">
+
+            <div class="testimonial-card">
+
+              <div class="testimonial-stars">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
+
+
+              <div class="testimonial-quote-wrap">
+
+                <p class="testimonial-quote">
+                  Great work carried out and to a very high standard, from quote to getting the work done with no worries even offered aftercare service and went through everything that was being/getting done and what was needed. Definitely the best on the Island. I Highly recommend Lewis brother to anyone. Thanks
+                </p>
+
+              </div>
+
+
+              <button
+                class="testimonial-read-button"
+                type="button"
+                aria-expanded="false"
+              >
+                Read more
+              </button>
+
+
+              <div class="testimonial-author">
+
+                <strong>
+                  Iwan Williams
+                </strong>
+
+                <span>
+                  Customer review
+                </span>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- REVIEW 09 -->
+
+          <article class="testimonial-review scroll-item">
+
+            <div class="testimonial-card">
+
+              <div class="testimonial-stars">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
+
+
+              <div class="testimonial-quote-wrap">
+
+                <p class="testimonial-quote">
+                  Great experience from beginning to end. Carl and his team were polite and helpful throughout a very complicated roof replacement. Nothing was too much trouble and we are delighted with our new roof. Very happy to recommend Lewis Brothers.
+                </p>
+
+              </div>
+
+
+              <div class="testimonial-author">
+
+                <strong>
+                  Mike Tod
+                </strong>
+
+                <span>
+                  Customer review
+                </span>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- REVIEW 10
+               Highlighted because it directly supports
+               the client's priority rubber roofing service.
+          -->
+
+          <article class="testimonial-review scroll-item is-featured">
+
+            <div class="testimonial-card">
+
+              <div class="testimonial-stars">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
+
+
+              <div class="testimonial-quote-wrap">
+
+                <p class="testimonial-quote">
+                  Finally a trustworthy company on anglesey, new flatroof with rubber, very happy with Lee and his team. Will recommend this company
+                </p>
+
+              </div>
+
+
+              <div class="testimonial-author">
+
+                <strong>
+                  Chloe
+                </strong>
+
+                <span>
+                  Customer review
+                </span>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+        </div>
+
       </div>
-
-    </div>
-
-
-
-    <!-- =====================================================
-         CAROUSEL NAVIGATION
-         ===================================================== -->
-
-    <div class="testimonials-toolbar">
-
-      <div
-        class="testimonial-controls"
-        aria-label="Testimonial navigation"
-      >
-
-        <button
-          class="testimonial-control"
-          type="button"
-          data-testimonial-prev
-          aria-label="Previous reviews"
-        >
-          <i
-            class="bi bi-chevron-left"
-            aria-hidden="true"
-          ></i>
-        </button>
-
-
-        <button
-          class="testimonial-control"
-          type="button"
-          data-testimonial-next
-          aria-label="Next reviews"
-        >
-          <i
-            class="bi bi-chevron-right"
-            aria-hidden="true"
-          ></i>
-        </button>
-
-      </div>
-
-    </div>
-
-
-
-    <!-- =====================================================
-         TESTIMONIAL TRACK
-         ===================================================== -->
-
-    <div
-      class="testimonials-track"
-      id="testimonialsTrack"
-      data-testimonials-track
-    >
-
-
-      <!-- 01 -->
-
-      <article class="testimonial-review">
-
-        <div class="testimonial-card">
-
-          <div
-            class="testimonial-quote-mark"
-            aria-hidden="true"
-          >
-            “
-          </div>
-
-          <div class="testimonial-quote-wrap">
-
-            <p class="testimonial-quote">
-              Had a large room plastered by Lewis Brothers Roofing and Plastering and they did an absolutely brilliant job. They were on time, easy to deal with, and kept everything tidy. The finish on the walls is spot-on.
-              <br><br>
-              Would definitely use them again and happily recommend them to anyone needing plastering done.
-            </p>
-
-          </div>
-
-
-          <footer class="testimonial-author">
-
-            <strong>
-              Ruby Russell
-            </strong>
-
-            <span>
-              Customer review
-            </span>
-
-          </footer>
-
-        </div>
-
-      </article>
-
-
-
-      <!-- 02 -->
-
-      <article class="testimonial-review">
-
-        <div class="testimonial-card">
-
-          <div
-            class="testimonial-quote-mark"
-            aria-hidden="true"
-          >
-            “
-          </div>
-
-          <div class="testimonial-quote-wrap">
-
-            <p class="testimonial-quote">
-              Our new roof was fitted quickly, despite unsettled weather. All the lads were friendly and helpful. A great job!!
-            </p>
-
-          </div>
-
-
-          <footer class="testimonial-author">
-
-            <strong>
-              Paul Crockford
-            </strong>
-
-            <span>
-              Customer review
-            </span>
-
-          </footer>
-
-        </div>
-
-      </article>
-
-
-
-      <!-- 03 -->
-
-      <article class="testimonial-review is-long">
-
-        <div class="testimonial-card">
-
-          <div
-            class="testimonial-quote-mark"
-            aria-hidden="true"
-          >
-            “
-          </div>
-
-          <div class="testimonial-quote-wrap">
-
-            <p class="testimonial-quote">
-              We had a very tricky rendering job done of a gable end above a kitchen extension . Right from the pricing of the job to finishing Lewis Brothers were very professional. The lads were very hard working and polite and did an excellent job . We would highly recommend Lewis Brothers
-            </p>
-
-          </div>
-
-
-          <button
-            class="testimonial-read-button"
-            type="button"
-            aria-expanded="false"
-          >
-            Read more
-          </button>
-
-
-          <footer class="testimonial-author">
-
-            <strong>
-              Jimmy Glass
-            </strong>
-
-            <span>
-              Customer review
-            </span>
-
-          </footer>
-
-        </div>
-
-      </article>
-
-
-
-      <!-- 04 -->
-
-      <article class="testimonial-review is-long">
-
-        <div class="testimonial-card">
-
-          <div
-            class="testimonial-quote-mark"
-            aria-hidden="true"
-          >
-            “
-          </div>
-
-          <div class="testimonial-quote-wrap">
-
-            <p class="testimonial-quote">
-              The best around !! I asked them to come and plaster my new home and they did an absolutely brilliant job of it definitely recommend Lewis brother and the team fantastic lads very polite and reliable and very respectful lads
-              <br><br>
-              Definitely be using Lewis brother in the future and will be recommending them to my friends and family
-            </p>
-
-          </div>
-
-
-          <button
-            class="testimonial-read-button"
-            type="button"
-            aria-expanded="false"
-          >
-            Read more
-          </button>
-
-
-          <footer class="testimonial-author">
-
-            <strong>
-              Samantha Lewis
-            </strong>
-
-            <span>
-              Customer review
-            </span>
-
-          </footer>
-
-        </div>
-
-      </article>
-
-
-
-      <!-- 05 -->
-
-      <article class="testimonial-review">
-
-        <div class="testimonial-card">
-
-          <div
-            class="testimonial-quote-mark"
-            aria-hidden="true"
-          >
-            “
-          </div>
-
-          <div class="testimonial-quote-wrap">
-
-            <p class="testimonial-quote">
-              We had a flat roof, lantern window, sun tunnels and the front of the bungalow rendered. The workmanship is top notch and Carl is a star. Had a little wobble in the middle but all was completed to an excellent standard so alls well that ends well.
-            </p>
-
-          </div>
-
-
-          <footer class="testimonial-author">
-
-            <strong>
-              Sam Carless
-            </strong>
-
-            <span>
-              Customer review
-            </span>
-
-          </footer>
-
-        </div>
-
-      </article>
-
-
-
-      <!-- 06 -->
-
-      <article class="testimonial-review">
-
-        <div class="testimonial-card">
-
-          <div
-            class="testimonial-quote-mark"
-            aria-hidden="true"
-          >
-            “
-          </div>
-
-          <div class="testimonial-quote-wrap">
-
-            <p class="testimonial-quote">
-              Lee and his team did the job on time and at a fair price,I'm very pleased with the final results, my walls and ceiling look lovely and I would definitely hire him for the next job 😊
-            </p>
-
-          </div>
-
-
-          <footer class="testimonial-author">
-
-            <strong>
-              Rita Thomas
-            </strong>
-
-            <span>
-              Customer review
-            </span>
-
-          </footer>
-
-        </div>
-
-      </article>
-
-
-
-      <!-- 07 -->
-
-      <article class="testimonial-review is-long">
-
-        <div class="testimonial-card">
-
-          <div
-            class="testimonial-quote-mark"
-            aria-hidden="true"
-          >
-            “
-          </div>
-
-          <div class="testimonial-quote-wrap">
-
-            <p class="testimonial-quote">
-              Lewis Brothers fitted a new roof about 3 years ago - all work guaranteed. Following storm Darragh we needed minor repairs to the cladding of the North facing dormer window. Carl and Barry came over and the cladding was fixed in less than an hour. ALL DONE FREE OF CHARGE.
-              <br><br>
-              Can thoroughly recommend their services. Tidy workers, very polite and easy to get on with. Diolch yn fawr (many thanks) Lee!
-            </p>
-
-          </div>
-
-
-          <button
-            class="testimonial-read-button"
-            type="button"
-            aria-expanded="false"
-          >
-            Read more
-          </button>
-
-
-          <footer class="testimonial-author">
-
-            <strong>
-              Robert Davies
-            </strong>
-
-            <span>
-              Customer review
-            </span>
-
-          </footer>
-
-        </div>
-
-      </article>
-
-
-
-      <!-- 08 -->
-
-      <article class="testimonial-review is-long">
-
-        <div class="testimonial-card">
-
-          <div
-            class="testimonial-quote-mark"
-            aria-hidden="true"
-          >
-            “
-          </div>
-
-          <div class="testimonial-quote-wrap">
-
-            <p class="testimonial-quote">
-              Great work carried out and to a very high standard, from quote to getting the work done with no worries even offered aftercare service and went through everything that was being/getting done and what was needed. Definitely the best on the Island. I Highly recommend Lewis brother to anyone. Thanks
-            </p>
-
-          </div>
-
-
-          <button
-            class="testimonial-read-button"
-            type="button"
-            aria-expanded="false"
-          >
-            Read more
-          </button>
-
-
-          <footer class="testimonial-author">
-
-            <strong>
-              Elena Williams
-            </strong>
-
-            <span>
-              Customer review
-            </span>
-
-          </footer>
-
-        </div>
-
-      </article>
-
-
-
-      <!-- 09 -->
-
-      <article class="testimonial-review">
-
-        <div class="testimonial-card">
-
-          <div
-            class="testimonial-quote-mark"
-            aria-hidden="true"
-          >
-            “
-          </div>
-
-          <div class="testimonial-quote-wrap">
-
-            <p class="testimonial-quote">
-              Great experience from beginning to end.
-              <br>
-              Carl and his team were polite and helpful throughout a very complicated roof replacement.
-              <br>
-              Nothing was too much trouble and we are delighted with our new roof.
-              <br>
-              Very happy to recommend Lewis Brothers.
-            </p>
-
-          </div>
-
-
-          <footer class="testimonial-author">
-
-            <strong>
-              Andrew Rutter
-            </strong>
-
-            <span>
-              Customer review
-            </span>
-
-          </footer>
-
-        </div>
-
-      </article>
-
-
-
-      <!-- 10 -->
-
-      <article class="testimonial-review is-long">
-
-        <div class="testimonial-card">
-
-          <div
-            class="testimonial-quote-mark"
-            aria-hidden="true"
-          >
-            “
-          </div>
-
-          <div class="testimonial-quote-wrap">
-
-            <p class="testimonial-review-topic">
-              Home renovation
-            </p>
-
-            <p class="testimonial-quote">
-              Our friend recommended Lewis Brothers Roofing and Plastering.
-              <br><br>
-              From the start.
-              <br>
-              They have been so polite and respectful of my home.
-              <br>
-              kept everywhere clean and tidy.
-              <br>
-              Most of all the work was to a very high standard.
-              <br><br>
-              I'll be using them again and happy to recommended them to anyone who needs any roofing or plastering work
-            </p>
-
-          </div>
-
-
-          <button
-            class="testimonial-read-button"
-            type="button"
-            aria-expanded="false"
-          >
-            Read more
-          </button>
-
-
-          <footer class="testimonial-author">
-
-            <strong>
-              Chris
-            </strong>
-
-            <span>
-              Customer review
-            </span>
-
-          </footer>
-
-        </div>
-
-      </article>
-
-
-
-      <!-- 11 -->
-
-      <article class="testimonial-review">
-
-        <div class="testimonial-card">
-
-          <div
-            class="testimonial-quote-mark"
-            aria-hidden="true"
-          >
-            “
-          </div>
-
-          <div class="testimonial-quote-wrap">
-
-            <p class="testimonial-review-topic">
-              Rubber flatroof
-            </p>
-
-            <p class="testimonial-quote">
-              Finally a trustworthy company on anglesey, new flatroof with rubber, very happy with Lee and his team.
-              <br>
-              Will recommend this company
-            </p>
-
-          </div>
-
-
-          <footer class="testimonial-author">
-
-            <strong>
-              Ceri
-            </strong>
-
-            <span>
-              Customer review
-            </span>
-
-          </footer>
-
-        </div>
-
-      </article>
-
-
-
-      <!-- 12 -->
-
-      <article class="testimonial-review is-long">
-
-        <div class="testimonial-card">
-
-          <div
-            class="testimonial-quote-mark"
-            aria-hidden="true"
-          >
-            “
-          </div>
-
-          <div class="testimonial-quote-wrap">
-
-            <p class="testimonial-review-topic">
-              Flat roof rubber replacement
-            </p>
-
-            <p class="testimonial-quote">
-              I want to thank all that is in Lewis Brothers roofing and plastering, conducted a excellent job on our garage flat roof. They also assisted in plastering work that we were left in a pickle with. Lee gave us a good price, knew what we needed and willing to support us to get these jobs done. Carl is an excellent roofer with expert knowledge. Willing to support and help customers and quick. Twm and Pete were excellent with the plastering that we needed to be done. They were knowledgable and fixed our plasterboarding with good prep work and did what was asked. Excellent work all round, will definitely have them for further projects.
-            </p>
-
-          </div>
-
-
-          <button
-            class="testimonial-read-button"
-            type="button"
-            aria-expanded="false"
-          >
-            Read more
-          </button>
-
-
-          <footer class="testimonial-author">
-
-            <strong>
-              Chloe
-            </strong>
-
-            <span>
-              Customer review
-            </span>
-
-          </footer>
-
-        </div>
-
-      </article>
 
 
     </div>
