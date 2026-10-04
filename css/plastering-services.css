@@ -204,7 +204,7 @@
   isolation: isolate;
 
   background:
-    url("https://images.pexels.com/photos/5493667/pexels-photo-5493667.jpeg?auto=compress&cs=tinysrgb&w=2200")
+    url("../images/plastering-anglesey-hero.webp")
     center 40% / cover no-repeat;
 
 }
@@ -2343,7 +2343,7 @@ summary::after {
   isolation: isolate;
 
   background:
-    url("https://images.pexels.com/photos/5493667/pexels-photo-5493667.jpeg?auto=compress&cs=tinysrgb&w=2200")
+    url("../images/plastering-rendering-final-cta.webp")
     center / cover no-repeat;
 
 }

@@ -837,9 +837,7 @@
   inset: 0;
 
   background:
-    url(
-      "https://images.pexels.com/photos/31771166/pexels-photo-31771166.jpeg?auto=compress&cs=tinysrgb&w=2200"
-    )
+
     center 52% /
     cover
     no-repeat;
@@ -1508,5 +1506,21 @@
   .about-service-card {
     transform: none !important;
   }
+
+}
+
+.about-final-background {
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    url(
+      "../images/about-final-roofing-project-anglesey.webp"
+    )
+    center 52% /
+    cover
+    no-repeat;
 
 }
