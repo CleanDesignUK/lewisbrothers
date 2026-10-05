@@ -1,12 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap");
 
-
-/* =========================================================
-   BRAND VARIABLES
-   ========================================================= */
-
 :root {
-
   --lb-primary: #c6c8cc;
   --lb-primary-dark: #adb1b6;
   --lb-primary-deep: #8d939a;
@@ -68,10 +62,6 @@
     rgba(13, 34, 60, 0.14);
 }
 
-
-/* =========================================================
-   RESET
-   ========================================================= */
 
 *,
 *::before,
@@ -168,10 +158,6 @@ p:last-child {
 }
 
 
-/* =========================================================
-   TYPOGRAPHY
-   ========================================================= */
-
 h1,
 h2,
 h3,
@@ -203,10 +189,6 @@ strong {
   font-weight: 700;
 }
 
-
-/* =========================================================
-   ACCESSIBILITY
-   ========================================================= */
 
 .visually-hidden {
   position: absolute !important;
@@ -279,10 +261,6 @@ strong {
 }
 
 
-/* =========================================================
-   CONTAINERS
-   ========================================================= */
-
 .site-container {
   width:
     min(
@@ -304,10 +282,6 @@ strong {
   margin-inline: auto;
 }
 
-
-/* =========================================================
-   STANDARD BRAND BUTTON
-   ========================================================= */
 
 .btn-brand {
   min-height: 50px;
@@ -338,6 +312,7 @@ strong {
     var(--font-subheading);
 
   font-size: 0.94rem;
+
   font-weight: 700;
 
   transition:
@@ -359,10 +334,6 @@ strong {
     translateY(-1px);
 }
 
-
-/* =========================================================
-   CONVERSION BUTTON
-   ========================================================= */
 
 .btn-conversion {
   min-height: 50px;
@@ -417,10 +388,6 @@ strong {
 }
 
 
-/* =========================================================
-   GLOBAL HEADER WRAPPER
-   ========================================================= */
-
 [data-global-header] {
   position: sticky;
 
@@ -438,10 +405,6 @@ strong {
   isolation: isolate;
 }
 
-
-/* =========================================================
-   HEADER
-   ========================================================= */
 
 .site-header {
   position: relative;
@@ -464,10 +427,6 @@ strong {
   pointer-events: none;
 }
 
-
-/* =========================================================
-   NAVBAR
-   ========================================================= */
 
 .site-navbar.nav-pill {
   width:
@@ -525,10 +484,6 @@ strong {
 }
 
 
-/* =========================================================
-   NAVBAR BRAND
-   ========================================================= */
-
 .nav-brand {
   min-width: 0;
 
@@ -544,9 +499,6 @@ strong {
 }
 
 
-/* =========================================================
-   DESKTOP LOGO
-   ========================================================= */
 .nav-brand-logo-desktop {
   display: block;
 
@@ -559,11 +511,6 @@ strong {
   object-fit: contain;
 }
 
-
-/* =========================================================
-   MOBILE BRAND
-   HIDDEN ON DESKTOP
-   ========================================================= */
 
 .nav-brand-mobile {
   display: none;
@@ -584,10 +531,6 @@ strong {
   object-fit: contain;
 }
 
-
-/* =========================================================
-   MOBILE BRAND TYPOGRAPHY
-   ========================================================= */
 
 .nav-mobile-business-name {
   min-width: 0;
@@ -659,10 +602,6 @@ strong {
 }
 
 
-/* =========================================================
-   NAVIGATION
-   ========================================================= */
-
 .site-navbar
 .navbar-collapse {
   align-items: center;
@@ -732,15 +671,10 @@ strong {
 }
 
 
-/* =========================================================
-   NAV DROPDOWN
-   ========================================================= */
-
 .nav-services-menu {
   min-width: 250px;
 
-  margin-top:
-    12px !important;
+  margin-top: 0 !important;
 
   padding: 9px;
 
@@ -801,10 +735,6 @@ strong {
   font-weight: 700;
 }
 
-
-/* =========================================================
-   NAVBAR CALL BUTTON
-   ========================================================= */
 
 .nav-call-wrap {
   flex-shrink: 0;
@@ -886,10 +816,6 @@ strong {
 }
 
 
-/* =========================================================
-   MOBILE NAV TOGGLE
-   ========================================================= */
-
 .nav-menu-toggle {
   width: 42px;
   height: 42px;
@@ -935,24 +861,98 @@ strong {
 }
 
 
-/* =========================================================
-   DESKTOP DROPDOWN
-   ========================================================= */
-
 @media (min-width: 992px) {
 
   .site-navbar
-  .dropdown:hover
+  .nav-item.dropdown {
+    position: relative;
+  }
+
+
+  .site-navbar
+  .nav-item.dropdown
   > .dropdown-menu {
+    position: absolute;
+
+    top: calc(100% + 8px);
+    left: 0;
+
     display: block;
+
+    margin-top: 0 !important;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transform:
+      translateY(-4px);
+
+    transition:
+      opacity 0.18s ease,
+      visibility 0.18s ease,
+      transform 0.18s ease;
+  }
+
+
+  .site-navbar
+  .nav-item.dropdown
+  > .dropdown-menu::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    top: -10px;
+
+    height: 10px;
+
+    background:
+      transparent;
+  }
+
+
+  .site-navbar
+  .nav-item.dropdown:hover
+  > .dropdown-menu,
+
+  .site-navbar
+  .nav-item.dropdown:focus-within
+  > .dropdown-menu,
+
+  .site-navbar
+  .nav-item.dropdown
+  > .dropdown-menu.show {
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+    transform:
+      translateY(0);
+  }
+
+
+  .site-navbar
+  .nav-item.dropdown:hover
+  > .nav-link,
+
+  .site-navbar
+  .nav-item.dropdown:focus-within
+  > .nav-link {
+    background:
+      rgba(255, 255, 255, 0.70);
+
+    color:
+      var(--lb-blue);
   }
 
 }
 
-
-/* =========================================================
-   TABLET NAVIGATION
-   ========================================================= */
 
 @media (max-width: 991.98px) {
 
@@ -1003,8 +1003,7 @@ strong {
 
 
   .nav-services-menu {
-    margin-top:
-      3px !important;
+    margin-top: 0 !important;
   }
 
 
@@ -1021,10 +1020,6 @@ strong {
 
 }
 
-
-/* =========================================================
-   MOBILE NAVIGATION
-   ========================================================= */
 
 @media (max-width: 767.98px) {
 
@@ -1059,19 +1054,10 @@ strong {
   }
 
 
-  /*
-   * DESKTOP LOGO COMPLETELY REMOVED
-   * ON MOBILE
-   */
-
   .nav-brand-logo-desktop {
     display: none;
   }
 
-
-  /*
-   * MOBILE LOCK-UP
-   */
 
   .nav-brand-mobile {
     min-width: 0;
@@ -1134,10 +1120,6 @@ strong {
 
 }
 
-
-/* =========================================================
-   SMALL MOBILE NAVIGATION
-   ========================================================= */
 
 @media (max-width: 575.98px) {
 
@@ -1211,10 +1193,6 @@ strong {
 }
 
 
-/* =========================================================
-   VERY SMALL MOBILE NAVIGATION
-   ========================================================= */
-
 @media (max-width: 390px) {
 
   .nav-brand-mobile {
@@ -1249,10 +1227,6 @@ strong {
 
 }
 
-
-/* =========================================================
-   WHATSAPP FLOAT
-   ========================================================= */
 
 .whatsapp-float {
   position: fixed;
@@ -1316,10 +1290,6 @@ strong {
 
 }
 
-
-/* =========================================================
-   COOKIE BANNER
-   ========================================================= */
 
 .cookie-banner {
   position: fixed;
@@ -1441,10 +1411,6 @@ strong {
 }
 
 
-/* =========================================================
-   GLOBAL SECTION EYEBROW
-   ========================================================= */
-
 .global-section-eyebrow {
   margin:
     0
@@ -1468,10 +1434,6 @@ strong {
     uppercase;
 }
 
-
-/* =========================================================
-   SERVICE AREAS
-   ========================================================= */
 
 .service-areas-section {
   position: relative;
@@ -1874,10 +1836,6 @@ strong {
 }
 
 
-/* =========================================================
-   SERVICE AREAS TABLET
-   ========================================================= */
-
 @media (max-width: 1100px) {
 
   .service-areas-layout {
@@ -1901,10 +1859,6 @@ strong {
 
 }
 
-
-/* =========================================================
-   SERVICE AREAS MOBILE
-   ========================================================= */
 
 @media (max-width: 767.98px) {
 
@@ -2039,10 +1993,6 @@ strong {
 
 }
 
-
-/* =========================================================
-   GLOBAL FAQ
-   ========================================================= */
 
 .global-faq-section {
   position: relative;
@@ -2532,10 +2482,6 @@ strong {
 }
 
 
-/* =========================================================
-   FINAL CTA
-   ========================================================= */
-
 .final-cta-section {
   position: relative;
 
@@ -2727,10 +2673,6 @@ strong {
   font-size: 1rem;
 }
 
-
-/* =========================================================
-   FINAL CTA FORM
-   ========================================================= */
 
 .final-cta-form-wrap {
   width: 100%;
@@ -2952,10 +2894,6 @@ strong {
 }
 
 
-/* =========================================================
-   FINAL CTA RESPONSIVE
-   ========================================================= */
-
 @media (max-width: 1050px) {
 
   .final-cta-panel {
@@ -3121,10 +3059,6 @@ strong {
 }
 
 
-/* =========================================================
-   FOOTER
-   ========================================================= */
-
 .site-footer {
   position: relative;
 
@@ -3282,10 +3216,6 @@ strong {
 }
 
 
-/* =========================================================
-   FOOTER SOCIALS
-   ========================================================= */
-
 .footer-socials {
   display: flex;
 
@@ -3343,10 +3273,6 @@ strong {
   color: inherit;
 }
 
-
-/* =========================================================
-   FOOTER CONTACT
-   ========================================================= */
 
 .footer-contact-column {
   min-width: 0;
@@ -3447,10 +3373,6 @@ a.footer-contact-item:hover
   line-height: 1.45;
 }
 
-
-/* =========================================================
-   FOOTER BOTTOM
-   ========================================================= */
 
 .footer-bottom {
   border-top:
@@ -3596,10 +3518,6 @@ a.footer-contact-item:hover
 }
 
 
-/* =========================================================
-   FOOTER TABLET
-   ========================================================= */
-
 @media (max-width: 1100px) {
 
   .footer-grid {
@@ -3640,10 +3558,6 @@ a.footer-contact-item:hover
 
 }
 
-
-/* =========================================================
-   FOOTER MOBILE
-   ========================================================= */
 
 @media (max-width: 767.98px) {
 
@@ -3776,10 +3690,6 @@ a.footer-contact-item:hover
 
 }
 
-
-/* =========================================================
-   GLOBAL MOBILE CARD CAROUSEL
-   ========================================================= */
 
 .mobile-card-carousel {
   position: relative;
@@ -3974,10 +3884,6 @@ a.footer-contact-item:hover
 }
 
 
-/* =========================================================
-   TESTIMONIALS
-   ========================================================= */
-
 .testimonials-section {
   position: relative;
 
@@ -4099,10 +4005,6 @@ a.footer-contact-item:hover
 }
 
 
-/* =========================================================
-   TESTIMONIAL SHOWCASE
-   ========================================================= */
-
 .testimonials-showcase {
   display: grid;
 
@@ -4115,10 +4017,6 @@ a.footer-contact-item:hover
   gap: 18px;
 }
 
-
-/* =========================================================
-   GOOGLE REVIEW PANEL
-   ========================================================= */
 
 .google-review-panel {
   min-height: 430px;
@@ -4227,7 +4125,8 @@ a.footer-contact-item:hover
 
   margin-bottom: 20px;
 
-  color: #ffd25c;
+  color:
+    #ffd25c;
 
   font-size: 0.94rem;
 }
@@ -4310,10 +4209,6 @@ a.footer-contact-item:hover
     translateY(-1px);
 }
 
-
-/* =========================================================
-   TESTIMONIAL SLIDER
-   ========================================================= */
 
 .testimonials-slider {
   min-width: 0;
@@ -4650,10 +4545,6 @@ a.footer-contact-item:hover
 }
 
 
-/* =========================================================
-   FEATURED TESTIMONIAL
-   ========================================================= */
-
 .testimonial-review.is-featured
 .testimonial-card {
   border-color:
@@ -4716,10 +4607,6 @@ a.footer-contact-item:hover
     );
 }
 
-
-/* =========================================================
-   TESTIMONIAL TABLET
-   ========================================================= */
 
 @media (max-width: 1199.98px) {
 
@@ -4836,10 +4723,6 @@ a.footer-contact-item:hover
 
 }
 
-
-/* =========================================================
-   TESTIMONIAL MOBILE
-   ========================================================= */
 
 @media (max-width: 767.98px) {
 
@@ -5027,10 +4910,6 @@ a.footer-contact-item:hover
 
 }
 
-
-/* =========================================================
-   REDUCED MOTION
-   ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
