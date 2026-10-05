@@ -7,22 +7,67 @@
 
     <div class="container-fluid nav-pill-inner">
 
-      <!-- LOGO -->
+
+      <!-- =================================================
+           BRAND
+           ================================================= -->
+
       <a
         class="navbar-brand nav-brand"
         href="index.html"
         aria-label="{{BUSINESS_NAME}} home"
       >
+
+
+        <!-- DESKTOP LOGO -->
+
         <img
+          class="nav-brand-logo-desktop"
           src="images/lewis-brothers-logo-landscape-transparent.png"
           alt="Lewis Brothers Roofing and Plastering"
           width="390"
           height="104"
         >
+
+
+        <!-- MOBILE BRAND -->
+
+        <span
+          class="nav-brand-mobile"
+          aria-hidden="true"
+        >
+
+          <img
+            class="nav-brand-logo-mobile"
+            src="images/lewis-brothers-logo-mark.jpg"
+            alt=""
+            width="80"
+            height="80"
+          >
+
+
+          <span class="nav-mobile-business-name">
+
+            <strong>
+              LEWIS BROTHERS
+            </strong>
+
+            <span>
+              ROOFING &amp; PLASTERING
+            </span>
+
+          </span>
+
+        </span>
+
       </a>
 
 
-      <!-- MOBILE TOGGLE -->
+
+      <!-- =================================================
+           MOBILE TOGGLE
+           ================================================= -->
+
       <button
         class="navbar-toggler nav-menu-toggle"
         type="button"
@@ -32,13 +77,19 @@
         aria-expanded="false"
         aria-label="Open navigation"
       >
+
         <span class="nav-toggle-line"></span>
         <span class="nav-toggle-line"></span>
         <span class="nav-toggle-line"></span>
+
       </button>
 
 
-      <!-- NAVIGATION -->
+
+      <!-- =================================================
+           NAVIGATION
+           ================================================= -->
+
       <div
         class="collapse navbar-collapse"
         id="siteNav"
@@ -46,7 +97,9 @@
 
         <ul class="navbar-nav mx-lg-auto align-items-lg-center">
 
+
           <li class="nav-item">
+
             <a
               class="nav-link"
               data-nav-page="index.html"
@@ -54,10 +107,12 @@
             >
               Home
             </a>
+
           </li>
 
 
           <li class="nav-item">
+
             <a
               class="nav-link"
               data-nav-page="about-roofing-plastering-llangefni-anglesey.html"
@@ -65,6 +120,7 @@
             >
               About
             </a>
+
           </li>
 
 
@@ -81,46 +137,59 @@
               Services
             </a>
 
+
             <ul class="dropdown-menu nav-services-menu">
 
               <li>
+
                 <a
                   class="dropdown-item dropdown-item-featured"
                   href="roofing-plastering-services-anglesey-north-wales.html"
                 >
                   All Services
                 </a>
+
               </li>
+
 
               <li>
                 <hr class="dropdown-divider">
               </li>
 
+
               <li>
+
                 <a
                   class="dropdown-item"
-                  href="epdm-rubber-roofing.html"
+                  href="epdm-rubber-flat-roofing-anglesey.html"
                 >
                   EPDM Rubber Roofing
                 </a>
+
               </li>
 
+
               <li>
+
                 <a
                   class="dropdown-item"
-                  href="roofing-roofing-plastering-services-anglesey-north-wales.html"
+                  href="roofing-services-anglesey.html"
                 >
                   Roofing Services
                 </a>
+
               </li>
 
+
               <li>
+
                 <a
                   class="dropdown-item"
-                  href="plastering-roofing-plastering-services-anglesey-north-wales.html"
+                  href="plastering-services-anglesey.html"
                 >
                   Plastering &amp; Rendering
                 </a>
+
               </li>
 
             </ul>
@@ -129,6 +198,7 @@
 
 
           <li class="nav-item">
+
             <a
               class="nav-link"
               data-nav-page="contact-roofers-anglesey.html"
@@ -136,12 +206,17 @@
             >
               Contact
             </a>
+
           </li>
 
         </ul>
 
 
-        <!-- CALL BUTTON -->
+
+        <!-- =================================================
+             CALL BUTTON
+             ================================================= -->
+
         <div class="nav-call-wrap">
 
           <a
@@ -149,6 +224,7 @@
             href="{{PHONE_HREF}}"
             aria-label="Call Lewis Brothers on {{PHONE_DISPLAY}}"
           >
+
             <i
               class="bi bi-telephone-fill"
               aria-hidden="true"
@@ -157,6 +233,7 @@
             <span>
               Call {{PHONE_DISPLAY}}
             </span>
+
           </a>
 
         </div>

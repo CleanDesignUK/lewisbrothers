@@ -1,9 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+>
+
+  <!-- HOME -->
   <url>
     <loc>https://lewisbrothersroofing.co.uk/</loc>
-    <lastmod>2026-09-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-10-05</lastmod>
   </url>
+
+
+  <!-- ALL SERVICES -->
+  <url>
+    <loc>https://lewisbrothersroofing.co.uk/roofing-plastering-services-anglesey-north-wales.html</loc>
+    <lastmod>2026-10-05</lastmod>
+  </url>
+
+
+  <!-- EPDM RUBBER ROOFING -->
+  <url>
+    <loc>https://lewisbrothersroofing.co.uk/epdm-rubber-flat-roofing-anglesey.html</loc>
+    <lastmod>2026-10-05</lastmod>
+  </url>
+
+
+  <!-- ROOFING SERVICES -->
+  <url>
+    <loc>https://lewisbrothersroofing.co.uk/roofing-services-anglesey.html</loc>
+    <lastmod>2026-10-05</lastmod>
+  </url>
+
+
+  <!-- PLASTERING SERVICES -->
+  <url>
+    <loc>https://lewisbrothersroofing.co.uk/plastering-services-anglesey.html</loc>
+    <lastmod>2026-10-05</lastmod>
+  </url>
+
+
+  <!-- ABOUT -->
+  <url>
+    <loc>https://lewisbrothersroofing.co.uk/about-roofing-plastering-llangefni-anglesey.html</loc>
+    <lastmod>2026-10-05</lastmod>
+  </url>
+
+
+  <!-- CONTACT -->
+  <url>
+    <loc>https://lewisbrothersroofing.co.uk/contact-roofers-anglesey.html</loc>
+    <lastmod>2026-10-05</lastmod>
+  </url>
+
+
+  <!-- PRIVACY POLICY -->
+  <url>
+    <loc>https://lewisbrothersroofing.co.uk/privacy-policy.html</loc>
+    <lastmod>2026-10-05</lastmod>
+  </url>
+
+
+  <!-- COOKIE POLICY -->
+  <url>
+    <loc>https://lewisbrothersroofing.co.uk/cookie-policy.html</loc>
+    <lastmod>2026-10-05</lastmod>
+  </url>
+
 </urlset>

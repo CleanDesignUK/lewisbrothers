@@ -1,6 +1,11 @@
 /* =========================================================
    LEWIS BROTHERS ROOFING & PLASTERING
    INDEX.JS
+
+   Handles:
+   - Lead form validation
+   - Web3Forms submission
+   - Homepage horizontal card controls
    ========================================================= */
 
 (() => {
@@ -20,46 +25,60 @@
     'https://api.web3forms.com/submit';
 
 
+  /* =======================================================
+     DISPOSABLE EMAIL DOMAINS
+     ======================================================= */
+
   const disposableDomains =
     new Set([
+
       'mailinator.com',
       '10minutemail.com',
       'guerrillamail.com',
       'tempmail.com',
       'yopmail.com',
+      'trashmail.com',
       'throwawaymail.com',
       'fakeinbox.com',
       'getnada.com'
+
     ]);
 
 
-
   /* =======================================================
-     GENERAL HELPERS
+     HELPERS
      ======================================================= */
 
   const clean = (value) => {
-    return String(value || '').trim();
+
+    return String(
+      value || ''
+    ).trim();
+
   };
 
 
   const showAlert = (options) => {
 
     if (window.Swal) {
-      return window.Swal.fire(options);
+
+      return window.Swal.fire(
+        options
+      );
+
     }
 
-    const message =
+
+    window.alert(
       options.text ||
       options.title ||
-      'Please try again.';
+      'Please try again.'
+    );
 
-    window.alert(message);
 
     return Promise.resolve();
 
   };
-
 
 
   /* =======================================================
@@ -69,40 +88,30 @@
   const validateEmail = (email) => {
 
     const value =
-      clean(email).toLowerCase();
+      clean(email)
+        .toLowerCase();
 
 
     if (
       value.length < 6 ||
       value.length > 254
     ) {
+
       return false;
+
     }
 
-
-    /*
-     * Reject obvious repeated-character spam.
-     */
-
-    if (/(.)\1{5,}/.test(value)) {
-      return false;
-    }
-
-
-    /*
-     * Sensible client-side format check.
-     *
-     * This confirms a plausible email structure.
-     * Actual mailbox ownership cannot be verified
-     * purely from client-side JavaScript.
-     */
 
     const pattern =
       /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i;
 
 
-    if (!pattern.test(value)) {
+    if (
+      !pattern.test(value)
+    ) {
+
       return false;
+
     }
 
 
@@ -114,7 +123,9 @@
       !domain ||
       disposableDomains.has(domain)
     ) {
+
       return false;
+
     }
 
 
@@ -123,122 +134,96 @@
   };
 
 
-
   /* =======================================================
-     UK PHONE VALIDATION
+     PHONE VALIDATION
      ======================================================= */
 
-  const validateUKPhone = (phone) => {
+  const validatePhone = (phone) => {
 
-    const raw =
+    const value =
       clean(phone);
 
 
-    if (!raw) {
+    if (!value) {
+
       return false;
+
     }
 
 
     const digits =
-      raw.replace(/\D/g, '');
+      value.replace(
+        /\D/g,
+        ''
+      );
 
 
     /*
-     * Reject 1111, 0000, 7777 etc.
-     */
-
-    if (/(\d)\1{3,}/.test(digits)) {
-      return false;
-    }
-
-
-    /*
-     * Reject obvious sequential dummy numbers.
+     * UK numbers entered as:
+     *
+     * 07932 511032
+     * +44 7932 511032
+     *
+     * are both accepted.
      */
 
     if (
-      /0123456789/.test(digits) ||
-      /1234567890/.test(digits) ||
-      /9876543210/.test(digits)
+      digits.length < 10 ||
+      digits.length > 13
     ) {
+
       return false;
+
     }
 
 
     /*
-     * Require reasonable number variation.
+     * Reject only very obvious fake numbers.
      */
 
     if (
-      new Set(digits).size < 4
+      /^(\d)\1+$/.test(digits)
     ) {
+
       return false;
-    }
-
-
-    /*
-     * International UK format:
-     * +44...
-     */
-
-    if (digits.startsWith('44')) {
-
-      if (digits.length !== 12) {
-        return false;
-      }
-
-      return /^44(?:1|2|3|7)\d{9}$/.test(
-        digits
-      );
 
     }
 
 
-    /*
-     * Domestic UK format:
-     * 01...
-     * 02...
-     * 03...
-     * 07...
-     */
-
-    if (digits.startsWith('0')) {
-
-      if (digits.length !== 11) {
-        return false;
-      }
-
-      return /^0(?:1|2|3|7)\d{9}$/.test(
-        digits
-      );
-
-    }
-
-
-    return false;
+    return true;
 
   };
-
 
 
   /* =======================================================
-     INVALID FIELD HELPERS
+     CLEAR VALIDATION
      ======================================================= */
 
-  const findFeedbackElement = (field) => {
+  const clearInvalid = (form) => {
 
-    const wrapper =
-      field.closest(
-        '.hero-field, .form-field, .col-12, .col-md-6'
-      );
+    form
+      .querySelectorAll(
+        '.is-invalid'
+      )
+      .forEach((field) => {
+
+        field.classList.remove(
+          'is-invalid'
+        );
 
 
-    return wrapper?.querySelector(
-      '.invalid-feedback'
-    );
+        field.removeAttribute(
+          'aria-invalid'
+        );
+
+      });
 
   };
 
+
+  /* =======================================================
+     MARK FIELD INVALID
+     ======================================================= */
 
   const markInvalid = (
     field,
@@ -246,7 +231,9 @@
   ) => {
 
     if (!field) {
+
       return;
+
     }
 
 
@@ -255,35 +242,37 @@
     );
 
 
+    field.setAttribute(
+      'aria-invalid',
+      'true'
+    );
+
+
+    const wrapper =
+      field.parentElement;
+
+
     const feedback =
-      findFeedbackElement(field);
+      wrapper?.querySelector(
+        '.invalid-feedback'
+      );
 
 
-    if (feedback) {
-      feedback.textContent = message;
+    if (
+      feedback &&
+      message
+    ) {
+
+      feedback.textContent =
+        message;
+
     }
 
   };
 
 
-  const clearInvalid = (form) => {
-
-    form
-      .querySelectorAll('.is-invalid')
-      .forEach((field) => {
-
-        field.classList.remove(
-          'is-invalid'
-        );
-
-      });
-
-  };
-
-
-
   /* =======================================================
-     FORM VALIDATION
+     VALIDATE FORM
      ======================================================= */
 
   const validateForm = (form) => {
@@ -324,51 +313,49 @@
       );
 
 
-    const honeypot =
+    const message =
       form.querySelector(
-        '[name="company_website"]'
+        '[name="message"][required]'
       );
 
 
-    /*
-     * Spam honeypot.
-     */
+    /* =====================================================
+       NAME
+       ===================================================== */
 
-    if (
-      honeypot &&
-      clean(honeypot.value)
-    ) {
-      return false;
-    }
+    if (name) {
+
+      const value =
+        clean(name.value);
 
 
-    /*
-     * Name.
-     */
+      if (
+        value.length < 2 ||
+        value.length > 80
+      ) {
 
-    if (
-      !name ||
-      clean(name.value).length < 2 ||
-      /https?:\/\//i.test(name.value)
-    ) {
+        markInvalid(
+          name,
+          'Please enter your name.'
+        );
 
-      markInvalid(
-        name,
-        'Please enter your name.'
-      );
 
-      valid = false;
+        valid = false;
+
+      }
 
     }
 
 
-    /*
-     * Email.
-     */
+    /* =====================================================
+       EMAIL
+       ===================================================== */
 
     if (
-      !email ||
-      !validateEmail(email.value)
+      email &&
+      !validateEmail(
+        email.value
+      )
     ) {
 
       markInvalid(
@@ -376,36 +363,41 @@
         'Please enter a valid email address.'
       );
 
+
       valid = false;
 
     }
 
 
-    /*
-     * Phone.
-     */
+    /* =====================================================
+       PHONE
+       ===================================================== */
 
     if (
-      !phone ||
-      !validateUKPhone(phone.value)
+      phone &&
+      !validatePhone(
+        phone.value
+      )
     ) {
 
       markInvalid(
         phone,
-        'Please enter a valid UK phone number.'
+        'Please enter a valid phone number.'
       );
+
 
       valid = false;
 
     }
 
 
-    /*
-     * Service.
-     */
+    /* =====================================================
+       SERVICE
+       ===================================================== */
 
     if (
-      !service ||
+      service &&
+      service.required &&
       !clean(service.value)
     ) {
 
@@ -414,73 +406,67 @@
         'Please choose a service.'
       );
 
-      valid = false;
-
-    }
-
-
-    /*
-     * Location / postcode.
-     */
-
-    if (
-      !location ||
-      clean(location.value).length < 2 ||
-      clean(location.value).length > 90
-    ) {
-
-      markInvalid(
-        location,
-        'Please enter the property location or postcode.'
-      );
 
       valid = false;
 
     }
 
 
-    /*
-     * Message is required only on forms
-     * where the message textarea itself
-     * has the required attribute.
-     */
+    /* =====================================================
+       LOCATION
+       ===================================================== */
 
-    const message =
-      form.querySelector(
-        '[name="message"][required]'
-      );
+    if (location) {
+
+      const value =
+        clean(location.value);
 
 
-    if (
-      message &&
-      clean(message.value).length < 5
-    ) {
+      if (
+        location.required &&
+        (
+          value.length < 2 ||
+          value.length > 100
+        )
+      ) {
 
-      markInvalid(
-        message,
-        'Please tell us briefly what work you need.'
-      );
+        markInvalid(
+          location,
+          'Please enter the property location or postcode.'
+        );
 
-      valid = false;
+
+        valid = false;
+
+      }
 
     }
 
 
-    /*
-     * Basic anti-bot timing check.
-     */
+    /* =====================================================
+       MESSAGE
+       ===================================================== */
 
-    const loadedAt =
-      Number(
-        form.dataset.loadedAt ||
-        Date.now()
-      );
+    if (message) {
+
+      const value =
+        clean(message.value);
 
 
-    if (
-      Date.now() - loadedAt < 2500
-    ) {
-      valid = false;
+      if (
+        value.length < 5
+      ) {
+
+        markInvalid(
+          message,
+          'Please tell us briefly what work you need.'
+        );
+
+
+        valid = false;
+
+      }
+
     }
 
 
@@ -489,373 +475,474 @@
   };
 
 
-
   /* =======================================================
-     WEB3FORMS SETUP WARNING
+     CHECK WEB3FORMS KEY
      ======================================================= */
 
-  const showSetupWarning = () => {
+  const web3FormsIsConfigured = () => {
 
-    return showAlert({
+    return Boolean(
+      clean(
+        config.web3FormsAccessKey
+      )
+    );
 
-      icon: 'info',
+  };
 
-      title: 'Form setup needed',
 
-      text:
-        'Add your Web3Forms access key in js/config.js before publishing the website.',
+  /* =======================================================
+     SUBMIT FORM
+     ======================================================= */
 
-      confirmButtonText: 'OK',
+  const submitForm =
+    async (form) => {
 
-      customClass: {
-        confirmButton:
-          'swal-brand-button'
-      },
 
-      buttonsStyling: false
+      if (
+        form.dataset.submitting ===
+        'true'
+      ) {
+
+        return;
+
+      }
+
+
+      /* ===================================================
+         VALIDATE
+         =================================================== */
+
+      const valid =
+        validateForm(form);
+
+
+      if (!valid) {
+
+        const firstInvalid =
+          form.querySelector(
+            '.is-invalid'
+          );
+
+
+        if (firstInvalid) {
+
+          firstInvalid.focus();
+
+
+          firstInvalid.scrollIntoView({
+
+            behavior:
+              'smooth',
+
+            block:
+              'center'
+
+          });
+
+        }
+
+
+        return;
+
+      }
+
+
+      /* ===================================================
+         WEB3FORMS KEY
+         =================================================== */
+
+      if (
+        !web3FormsIsConfigured()
+      ) {
+
+        await showAlert({
+
+          icon:
+            'error',
+
+          title:
+            'Form configuration error',
+
+          text:
+            'The enquiry form is not connected correctly yet.',
+
+          confirmButtonText:
+            'OK',
+
+          confirmButtonColor:
+            '#163153'
+
+        });
+
+
+        console.error(
+          'Missing web3FormsAccessKey in js/config.js'
+        );
+
+
+        return;
+
+      }
+
+
+      const submitButton =
+        form.querySelector(
+          'button[type="submit"]'
+        );
+
+
+      if (!submitButton) {
+
+        console.error(
+          'Form submit button could not be found.'
+        );
+
+
+        return;
+
+      }
+
+
+      const originalHTML =
+        submitButton.innerHTML;
+
+
+      form.dataset.submitting =
+        'true';
+
+
+      submitButton.disabled =
+        true;
+
+
+      submitButton.innerHTML = `
+        <span
+          class="spinner-border spinner-border-sm me-2"
+          aria-hidden="true"
+        ></span>
+        Sending...
+      `;
+
+
+      /* ===================================================
+         BUILD DATA
+         =================================================== */
+
+      const data =
+        new FormData(form);
+
+
+      /*
+       * Add the Web3Forms key from config.js.
+       */
+
+      data.set(
+        'access_key',
+        config.web3FormsAccessKey
+      );
+
+
+      /*
+       * Email subject.
+       */
+
+      const serviceName =
+        clean(
+          data.get(
+            'service'
+          )
+        ) ||
+        'Website';
+
+
+      data.set(
+        'subject',
+        `New ${serviceName} enquiry - Lewis Brothers website`
+      );
+
+
+      data.set(
+        'from_name',
+        'Lewis Brothers Website'
+      );
+
+
+      data.set(
+        'page_url',
+        window.location.href
+      );
+
+
+      /* ===================================================
+         SUBMIT TO WEB3FORMS
+         =================================================== */
+
+      try {
+
+        const response =
+          await fetch(
+            WEB3FORMS_ENDPOINT,
+            {
+
+              method:
+                'POST',
+
+              body:
+                data
+
+            }
+          );
+
+
+        let result;
+
+
+        try {
+
+          result =
+            await response.json();
+
+        } catch (jsonError) {
+
+          throw new Error(
+            'Web3Forms returned an invalid response.'
+          );
+
+        }
+
+
+        console.log(
+          'Web3Forms response:',
+          result
+        );
+
+
+        if (
+          !response.ok ||
+          result.success !== true
+        ) {
+
+          throw new Error(
+            result.message ||
+            `Web3Forms returned HTTP ${response.status}`
+          );
+
+        }
+
+
+        /* =================================================
+           SUCCESS
+           ================================================= */
+
+        form.reset();
+
+
+        clearInvalid(
+          form
+        );
+
+
+        await showAlert({
+
+          icon:
+            'success',
+
+          title:
+            'Thank you!',
+
+          text:
+            'Our team will be in touch with you soon.',
+
+          confirmButtonText:
+            'Close',
+
+          confirmButtonColor:
+            '#163153'
+
+        });
+
+
+      } catch (error) {
+
+        console.error(
+          'Lewis Brothers form submission error:',
+          error
+        );
+
+
+        const errorMessage =
+          error instanceof Error
+            ? error.message
+            : String(error);
+
+
+        await showAlert({
+
+          icon:
+            'error',
+
+          title:
+            "We couldn't send your enquiry",
+
+          text:
+            'Please try again or call us on 07932 511032.',
+
+          confirmButtonText:
+            'Close',
+
+          confirmButtonColor:
+            '#163153'
+
+        });
+
+
+        console.error(
+          'Web3Forms error details:',
+          errorMessage
+        );
+
+
+      } finally {
+
+        form.dataset.submitting =
+          'false';
+
+
+        submitButton.disabled =
+          false;
+
+
+        submitButton.innerHTML =
+          originalHTML;
+
+      }
+
+    };
+
+
+  /* =======================================================
+     INITIALISE FORMS
+     ======================================================= */
+
+  const initialiseLeadForms = () => {
+
+    const forms =
+      document.querySelectorAll(
+        '.lead-form'
+      );
+
+
+    forms.forEach((form) => {
+
+
+      if (
+        form.dataset.leadFormBound ===
+        'true'
+      ) {
+
+        return;
+
+      }
+
+
+      form.dataset.leadFormBound =
+        'true';
+
+
+      form.addEventListener(
+        'submit',
+        (event) => {
+
+          event.preventDefault();
+
+
+          submitForm(
+            form
+          );
+
+        }
+      );
+
+
+      form
+        .querySelectorAll(
+          'input, select, textarea'
+        )
+        .forEach((field) => {
+
+
+          const clearFieldError =
+            () => {
+
+              field.classList.remove(
+                'is-invalid'
+              );
+
+
+              field.removeAttribute(
+                'aria-invalid'
+              );
+
+            };
+
+
+          field.addEventListener(
+            'input',
+            clearFieldError
+          );
+
+
+          field.addEventListener(
+            'change',
+            clearFieldError
+          );
+
+        });
 
     });
 
   };
 
 
-
   /* =======================================================
-     SUBMIT LEAD FORM
+     CARD SCROLLING
      ======================================================= */
 
-  const submitForm = async (form) => {
+  const scrollCards = (
+    elementId,
+    direction
+  ) => {
 
-    if (!validateForm(form)) {
-
-      const firstInvalid =
-        form.querySelector(
-          '.is-invalid'
-        );
-
-
-      if (firstInvalid) {
-
-        firstInvalid.focus({
-          preventScroll: false
-        });
-
-      } else {
-
-        showAlert({
-
-          icon: 'warning',
-
-          title:
-            'Please check your details',
-
-          text:
-            'Please complete the form carefully and try again.',
-
-          confirmButtonText: 'OK',
-
-          customClass: {
-            confirmButton:
-              'swal-brand-button'
-          },
-
-          buttonsStyling: false
-
-        });
-
-      }
-
-
-      return;
-
-    }
-
-
-    if (
-      !config.web3FormsAccessKey ||
-      config.web3FormsAccessKey ===
-        'YOUR_WEB3FORMS_ACCESS_KEY'
-    ) {
-
-      showSetupWarning();
-
-      return;
-
-    }
-
-
-    const submitButton =
-      form.querySelector(
-        'button[type="submit"]'
+    const element =
+      document.getElementById(
+        elementId
       );
 
 
-    if (!submitButton) {
+    if (!element) {
+
       return;
-    }
-
-
-    const originalText =
-      submitButton.innerHTML;
-
-
-    submitButton.disabled = true;
-
-
-    submitButton.innerHTML = `
-      <span
-        class="spinner-border spinner-border-sm me-2"
-        aria-hidden="true"
-      ></span>
-      Sending...
-    `;
-
-
-    const data =
-      new FormData(form);
-
-
-    data.append(
-      'access_key',
-      config.web3FormsAccessKey
-    );
-
-
-    data.append(
-      'subject',
-      `New ${data.get('service')} enquiry from Lewis Brothers website`
-    );
-
-
-    data.append(
-      'from_name',
-      'Lewis Brothers Website'
-    );
-
-
-    data.append(
-      'page_url',
-      window.location.href
-    );
-
-
-    try {
-
-      const response =
-        await fetch(
-          WEB3FORMS_ENDPOINT,
-          {
-            method: 'POST',
-            body: data
-          }
-        );
-
-
-      const result =
-        await response.json();
-
-
-      if (
-        !response.ok ||
-        !result.success
-      ) {
-
-        throw new Error(
-          result.message ||
-          'Form submission failed'
-        );
-
-      }
-
-
-      form.reset();
-
-
-      form.dataset.loadedAt =
-        Date.now().toString();
-
-
-      await showAlert({
-
-        icon: 'success',
-
-        title: 'Thank you!',
-
-        text:
-          'Our team will be in touch with you soon.',
-
-        confirmButtonText:
-          'Close',
-
-        customClass: {
-          confirmButton:
-            'swal-brand-button'
-        },
-
-        buttonsStyling: false
-
-      });
-
-
-    } catch (error) {
-
-      const phoneE164 =
-        config.phoneE164 ||
-        '+447932511032';
-
-
-      const phoneDisplay =
-        config.phoneDisplay ||
-        '07932 511032';
-
-
-      await showAlert({
-
-        icon: 'error',
-
-        title:
-          'We could not send your enquiry',
-
-        html:
-          `Please try again, or call <a href="tel:${phoneE164}">${phoneDisplay}</a>.`,
-
-        confirmButtonText:
-          'Close',
-
-        customClass: {
-          confirmButton:
-            'swal-brand-button'
-        },
-
-        buttonsStyling: false
-
-      });
-
-
-    } finally {
-
-      submitButton.disabled = false;
-
-      submitButton.innerHTML =
-        originalText;
 
     }
 
-  };
+
+    const firstCard =
+      element.firstElementChild;
 
 
-
-  /* =======================================================
-     INITIALISE LEAD FORMS
-     ======================================================= */
-
-  const initialiseLeadForms = () => {
-
-    document
-      .querySelectorAll('.lead-form')
-      .forEach((form) => {
-
-        /*
-         * Prevent duplicate listeners.
-         */
-
-        if (
-          form.dataset.leadFormBound ===
-          'true'
-        ) {
-          return;
-        }
+    let amount =
+      Math.min(
+        element.clientWidth * 0.85,
+        380
+      );
 
 
-        form.dataset.leadFormBound =
-          'true';
-
-
-        form.dataset.loadedAt =
-          Date.now().toString();
-
-
-        form.addEventListener(
-          'submit',
-          (event) => {
-
-            event.preventDefault();
-
-            submitForm(form);
-
-          }
-        );
-
-
-        form
-          .querySelectorAll(
-            'input, select, textarea'
-          )
-          .forEach((field) => {
-
-            const clearFieldError =
-              () => {
-
-                field.classList.remove(
-                  'is-invalid'
-                );
-
-              };
-
-
-            field.addEventListener(
-              'input',
-              clearFieldError
-            );
-
-
-            field.addEventListener(
-              'change',
-              clearFieldError
-            );
-
-          });
-
-      });
-
-  };
-
-
-
-  /* =======================================================
-     TESTIMONIAL HELPERS
-     ======================================================= */
-
-  const getTestimonialsTrack = () => {
-
-    return document.querySelector(
-      '[data-testimonials-track]'
-    );
-
-  };
-
-
-  const getTestimonialScrollDistance =
-    (track) => {
-
-      if (!track) {
-        return 0;
-      }
-
-
-      const card =
-        track.querySelector(
-          '.testimonial-review'
-        );
-
-
-      if (!card) {
-        return track.clientWidth;
-      }
-
+    if (firstCard) {
 
       const styles =
-        window.getComputedStyle(track);
+        window.getComputedStyle(
+          element
+        );
 
 
       const gap =
@@ -866,239 +953,121 @@
         ) || 0;
 
 
-      return (
-        card.getBoundingClientRect().width +
-        gap
-      );
-
-    };
-
-
-
-  /* =======================================================
-     TESTIMONIAL ARROW NAVIGATION
-     ======================================================= */
-
-  const moveTestimonials = (
-    direction
-  ) => {
-
-    const track =
-      getTestimonialsTrack();
-
-
-    if (!track) {
-      return;
-    }
-
-
-    const distance =
-      getTestimonialScrollDistance(
-        track
-      );
-
-
-    if (!distance) {
-      return;
-    }
-
-
-    const maxScroll =
-      Math.max(
-        0,
-        track.scrollWidth -
-        track.clientWidth
-      );
-
-
-    const tolerance = 8;
-
-
-    let target;
-
-
-    if (direction === 'next') {
-
-      /*
-       * Loop back to the beginning
-       * after reaching the final cards.
-       */
-
-      if (
-        track.scrollLeft >=
-        maxScroll - tolerance
-      ) {
-
-        target = 0;
-
-      } else {
-
-        target =
-          Math.min(
-            track.scrollLeft +
-            distance,
-            maxScroll
-          );
-
-      }
-
-    } else {
-
-      /*
-       * From the beginning, previous
-       * loops around to the end.
-       */
-
-      if (
-        track.scrollLeft <=
-        tolerance
-      ) {
-
-        target = maxScroll;
-
-      } else {
-
-        target =
-          Math.max(
-            track.scrollLeft -
-            distance,
-            0
-          );
-
-      }
+      amount =
+        firstCard
+          .getBoundingClientRect()
+          .width +
+        gap;
 
     }
 
 
-    track.scrollTo({
+    element.scrollBy({
 
-      left: target,
+      left:
+        direction === 'right'
+          ? amount
+          : -amount,
 
-      behavior: 'smooth'
+      behavior:
+        'smooth'
 
     });
 
   };
 
 
-
   /* =======================================================
-     TESTIMONIAL READ MORE / LESS
+     CARD ARROWS
      ======================================================= */
 
-  const toggleTestimonial = (
-    button
-  ) => {
-
-    const review =
-      button.closest(
-        '.testimonial-review'
-      );
+  const initialiseHomepageScrollers =
+    () => {
 
 
-    if (!review) {
-      return;
-    }
+      document
+        .querySelectorAll(
+          '[data-scroll-left]'
+        )
+        .forEach((button) => {
 
 
-    const expanded =
-      review.classList.toggle(
-        'is-expanded'
-      );
+          if (
+            button.dataset.scrollButtonBound ===
+            'true'
+          ) {
+
+            return;
+
+          }
 
 
-    button.textContent =
-      expanded
-        ? 'Read less'
-        : 'Read more';
+          button.dataset.scrollButtonBound =
+            'true';
 
 
-    button.setAttribute(
-      'aria-expanded',
-      String(expanded)
-    );
+          button.addEventListener(
+            'click',
+            () => {
+
+              scrollCards(
+                button.dataset.scrollLeft,
+                'left'
+              );
+
+            }
+          );
+
+        });
+
+
+      document
+        .querySelectorAll(
+          '[data-scroll-right]'
+        )
+        .forEach((button) => {
+
+
+          if (
+            button.dataset.scrollButtonBound ===
+            'true'
+          ) {
+
+            return;
+
+          }
+
+
+          button.dataset.scrollButtonBound =
+            'true';
+
+
+          button.addEventListener(
+            'click',
+            () => {
+
+              scrollCards(
+                button.dataset.scrollRight,
+                'right'
+              );
+
+            }
+          );
+
+        });
 
   };
 
 
-
   /* =======================================================
-     GLOBAL CLICK HANDLER
-
-     Event delegation means these controls work even if
-     index.js is loaded before the testimonial section.
+     INITIALISE PAGE
      ======================================================= */
 
-  document.addEventListener(
-    'click',
-    (event) => {
-
-      const previousButton =
-        event.target.closest(
-          '[data-testimonial-prev]'
-        );
-
-
-      if (previousButton) {
-
-        event.preventDefault();
-
-        moveTestimonials(
-          'previous'
-        );
-
-        return;
-
-      }
-
-
-      const nextButton =
-        event.target.closest(
-          '[data-testimonial-next]'
-        );
-
-
-      if (nextButton) {
-
-        event.preventDefault();
-
-        moveTestimonials(
-          'next'
-        );
-
-        return;
-
-      }
-
-
-      const readButton =
-        event.target.closest(
-          '.testimonial-read-button'
-        );
-
-
-      if (readButton) {
-
-        event.preventDefault();
-
-        toggleTestimonial(
-          readButton
-        );
-
-      }
-
-    }
-  );
-
-
-
-  /* =======================================================
-     INITIAL PAGE LOAD
-     ======================================================= */
-
-  const initialiseIndexPage = () => {
+  const initialisePage = () => {
 
     initialiseLeadForms();
+
+    initialiseHomepageScrollers();
 
   };
 
@@ -1110,23 +1079,23 @@
 
     document.addEventListener(
       'DOMContentLoaded',
-      initialiseIndexPage,
+      initialisePage,
       {
         once: true
       }
     );
 
+
   } else {
 
-    initialiseIndexPage();
+    initialisePage();
 
   }
 
 
-
   document.addEventListener(
     'lewis:components-ready',
-    initialiseLeadForms
+    initialisePage
   );
 
 })();
